@@ -123,6 +123,7 @@
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Parcours</h2>
         <div class="flex flex-col gap-20" >
+          <svg id="svg" height="800" width="800" stroke-dasharray="14" stroke-linecap="round"></svg>
         </div>
       </div>
     </section>
@@ -132,13 +133,102 @@
 <script>
 export default {
   name: 'Home',
+  data() {
+    return {
+      width: window.innerWidth - 20,
+      height: 6000,
+      svgelement: '',
+    };
+  },
   components: {
+  },
+  methods: {
+    Random(range) {
+      return -range / 2 + Math.floor(Math.random() * range);
+    },
+    DrawBezier(pathString, stroke) {
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttributeNS(null, 'd', pathString);
+      path.setAttributeNS(null, 'stroke', stroke);
+      path.setAttributeNS(null, 'fill', 'transparent');
+      path.setAttributeNS(null, 'stroke-width', '4px');
+      this.svgelement.appendChild(path);
+    },
+    GeneratePath(points) {
+      let type = null;
+      if (points.length === 3) {
+        type = 'Q';
+      } else if (points.length === 4) {
+        type = 'C';
+      } else if (points.length % 2 === 0) {
+        type = 'C';
+      } else {
+        throw new Error('Number of points must be 3 or an even number more than 3');
+      }
+      const pathPoints = ['M ', points[0][0], ',', points[0][1], type];
+      for (let p = 1, l = points.length; p < l; p += 1) {
+        if (p >= 4 && p % 2 === 0) {
+          pathPoints.push('S');
+        }
+        pathPoints.push(points[p][0]);
+        pathPoints.push(',');
+        pathPoints.push(points[p][1]);
+      }
+      return pathPoints.join(' ');
+    },
+    DrawPoints(points, colour) {
+      points.forEach((point) => {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttributeNS(null, 'cx', point[0]);
+        circle.setAttributeNS(null, 'cy', point[1]);
+        circle.setAttributeNS(null, 'r', 6);
+        circle.setAttributeNS(null, 'fill', colour);
+        this.svgelement.appendChild(circle);
+      });
+      // for (const point of points) {
+      //   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      //   circle.setAttributeNS(null, 'cx', point[0]);
+      //   circle.setAttributeNS(null, 'cy', point[1]);
+      //   circle.setAttributeNS(null, 'r', 6);
+      //   circle.setAttributeNS(null, 'fill', colour);
+      //   this.svgelement.appendChild(circle);
+      // }
+    },
+    CalcPoints(repeat, randRange, xSpacing, ySpacing) {
+      let points = `[[0,0][${this.width / 4},50]`;
+      let i = 0;
+      let ii = 2;
+      for (; i < repeat; i += 1, ii += 2) {
+        if (i % 2 === 0) {
+          points += `[${this.width / 2 + xSpacing + this.Random(randRange)},${ii * ySpacing + 50 + this.Random(randRange)}]`;
+          points += `[${this.width / 2 + xSpacing + this.Random(randRange)},${ii * ySpacing + ySpacing + 50 + this.Random(randRange)}]`;
+        } else {
+          points += `[${this.width / 2 - xSpacing + this.Random(randRange)},${ii * ySpacing + 50 + this.Random(randRange)}]`;
+          points += `[${this.width / 2 - xSpacing + this.Random(randRange)},${ii * ySpacing + ySpacing + 50 + this.Random(randRange)}]`;
+        }
+      }
+      if (i % 2 !== 0) {
+        points += `[${this.width / 4},${ii * ySpacing + ySpacing + 50}][0,${ii * ySpacing + ySpacing + 100}]]`;
+      } else {
+        points += `[${this.width - this.width / 4},${ii * ySpacing + ySpacing}][${this.width},${ii * ySpacing + ySpacing + 100}]]`;
+      }
+      points = points.replaceAll('][', '],[');
+      const pointsObject = JSON.parse(points);
+      const pathString = this.GeneratePath(pointsObject, false);
+      this.DrawBezier(pathString, '#275DE7');
+      this.DrawPoints(pointsObject, '#33ff33');
+      // console.log(pointsObject);
+    },
   },
   computed: {
     Realisation() {
       const allRealisation = this.$store.state.realisation;
       return allRealisation.slice(0, 3);
     },
+  },
+  mounted() {
+    this.svgelement = document.getElementById('svg');
+    this.CalcPoints(3, 0, this.width / 6, 150);
   },
 };
 </script>
