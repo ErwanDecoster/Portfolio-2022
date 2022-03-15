@@ -108,7 +108,7 @@
               <ul class="flex gap-2 flex-wrap">
                 <li class="py-1 px-3 bg-red-500 text-white text-sm rounded-md" v-for="tech in row.techno" v-bind:key="tech" :style="'background-color: #' + tech.color">{{ tech.name }}</li>
               </ul>
-              <p class="text-left grow-[1]">Web App de covoiturage</p>
+              <p class="text-left grow-[1]">{{ row.shortDesc }}</p>
               <div class="flex gap-4">
                 <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center" href="">Visiter le site</a>
                 <router-link to="/" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Plus d'informations</router-link>
@@ -123,7 +123,12 @@
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Parcours</h2>
         <div class="flex flex-col gap-20" >
-          <svg id="svg" height="800" width="800" stroke-dasharray="14" stroke-linecap="round"></svg>
+          <svg ref="svg" id="svg" height="3000" :style="svgStyle" stroke-dasharray="14" stroke-linecap="round" class="absolute left-0"></svg>
+          <div class="flex flex-col gap-2">
+            <div v-for="row in Parcourt" :key="row" class="bg-blue-400" :style="ReturnYSpacing">
+              <h3>Oui</h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -135,9 +140,11 @@ export default {
   name: 'Home',
   data() {
     return {
-      width: window.innerWidth - 20,
+      width: '',
       height: 6000,
       svgelement: '',
+      pointsRepeat: 5,
+      ySpacing: 150,
     };
   },
   components: {
@@ -152,7 +159,7 @@ export default {
       path.setAttributeNS(null, 'stroke', stroke);
       path.setAttributeNS(null, 'fill', 'transparent');
       path.setAttributeNS(null, 'stroke-width', '4px');
-      this.svgelement.appendChild(path);
+      document.getElementById('svg').appendChild(path);
     },
     GeneratePath(points) {
       let type = null;
@@ -183,7 +190,7 @@ export default {
         circle.setAttributeNS(null, 'cy', point[1]);
         circle.setAttributeNS(null, 'r', 6);
         circle.setAttributeNS(null, 'fill', colour);
-        this.svgelement.appendChild(circle);
+        document.getElementById('svg').appendChild(circle);
       });
       // for (const point of points) {
       //   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
@@ -191,13 +198,13 @@ export default {
       //   circle.setAttributeNS(null, 'cy', point[1]);
       //   circle.setAttributeNS(null, 'r', 6);
       //   circle.setAttributeNS(null, 'fill', colour);
-      //   this.svgelement.appendChild(circle);
+      //   document.getElementById('svg').appendChild(circle);
       // }
     },
     CalcPoints(repeat, randRange, xSpacing, ySpacing) {
       let points = `[[0,0][${this.width / 4},50]`;
       let i = 0;
-      let ii = 2;
+      let ii = 1;
       for (; i < repeat; i += 1, ii += 2) {
         if (i % 2 === 0) {
           points += `[${this.width / 2 + xSpacing + this.Random(randRange)},${ii * ySpacing + 50 + this.Random(randRange)}]`;
@@ -208,14 +215,14 @@ export default {
         }
       }
       if (i % 2 !== 0) {
-        points += `[${this.width / 4},${ii * ySpacing + ySpacing + 50}][0,${ii * ySpacing + ySpacing + 100}]]`;
+        points += `[${this.width / 4},${ii * ySpacing + 100}][0,${ii * ySpacing + 150}]]`;
       } else {
-        points += `[${this.width - this.width / 4},${ii * ySpacing + ySpacing}][${this.width},${ii * ySpacing + ySpacing + 100}]]`;
+        points += `[${this.width - this.width / 4},${ii * ySpacing}][${this.width},${ii * ySpacing + 150}]]`;
       }
       points = points.replaceAll('][', '],[');
       const pointsObject = JSON.parse(points);
       const pathString = this.GeneratePath(pointsObject, false);
-      this.DrawBezier(pathString, '#275DE7');
+      this.DrawBezier(pathString, '#2563EB');
       this.DrawPoints(pointsObject, '#33ff33');
       // console.log(pointsObject);
     },
@@ -225,10 +232,39 @@ export default {
       const allRealisation = this.$store.state.realisation;
       return allRealisation.slice(0, 3);
     },
+    Parcourt() {
+      const allParcourt = this.$store.state.parcourt;
+      return allParcourt;
+      // return allParcourt.slice(0, 3);
+    },
+    svgStyle() {
+      return {
+        width: window.innerWidth - 20,
+        height: 150 * this.pointsRepeat * 2 + 300,
+      };
+    },
+    ReturnYSpacing() {
+      return {
+        height: this.ySpacing,
+      };
+    },
   },
   mounted() {
-    this.svgelement = document.getElementById('svg');
-    this.CalcPoints(3, 0, this.width / 6, 150);
+    this.width = window.innerWidth;
+    this.CalcPoints(this.pointsRepeat, 0, this.width / 6, this.ySpacing);
+    // erer
+    window.addEventListener('resize', () => {
+      // this.svgStyle();
+      this.width = window.innerWidth - 20;
+      const element = document.getElementById('svg');
+      while (element.firstChild) {
+        console.log(element.firstChild);
+        element.removeChild(element.firstChild);
+        console.log('test1');
+      }
+      element.style.width = `${this.width}px`;
+      this.CalcPoints(this.pointsRepeat, 0, this.width / 6, this.ySpacing);
+    });
   },
 };
 </script>
