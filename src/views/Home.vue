@@ -122,11 +122,17 @@
     <section class="min-h-screen py-16">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Parcours</h2>
-        <div class="flex flex-col gap-20" >
-          <svg ref="svg" id="svg" height="3000" :style="svgStyle" stroke-dasharray="14" stroke-linecap="round" class="absolute left-0"></svg>
-          <div class="flex flex-col gap-2">
-            <div v-for="row in Parcourt" :key="row" class="bg-blue-400" :style="ReturnYSpacing">
-              <h3>Oui</h3>
+      <div class="flex flex-col gap-20" :style="{ 'padding-top': (200 + ySpacing / 2 - 30) + 'px' }">
+          <svg ref="svg" id="svg" height="3000" :style="{ 'margin-top': -(200 + ySpacing / 2 - 30) + 'px' }" stroke-dasharray="14" stroke-linecap="round" class="absolute left-0 pointer-events-none"></svg>
+          <div :style="{ 'margin-top': -(200 + ySpacing / 2 - 30) + 'px' }" id="steps" class="bg-red-200 absolute left-0 w-10 h-10 "></div>
+          <div class="flex flex-col gap-2" :style="{ gap: ySpacing - 50 + 'px' }">
+            <div v-for="row in Parcourt" :key="row" class="bg-white border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl max-w-lg p-3 flex flex-col justify-between" :style="{ height: ySpacing + 50 + 'px' }" :class="[{ 'sm:ml-auto': (row.id % 2 !== 0) },{ 'sm:mr-auto': (row.id % 2 === 0)}]">
+              <div class="flex flex-col">
+                <h3 class="font-bold text-xl">{{ row.company }} - <span class="font-light">{{ row.role }}</span></h3>
+                <p class="text-sm">{{ row.placement }}</p>
+                <p class="text-ellipsis overflow-hidden h-[72px]">{{ row.shortDesc }}</p>
+              </div>
+              <router-link to="/" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link>
             </div>
           </div>
         </div>
@@ -143,7 +149,7 @@ export default {
       width: '',
       height: 6000,
       svgelement: '',
-      pointsRepeat: 5,
+      pointsRepeat: this.$store.state.parcourt.length,
       ySpacing: 150,
     };
   },
@@ -183,8 +189,23 @@ export default {
       }
       return pathPoints.join(' ');
     },
+    formatDates(startDate, endDate) {
+      const dateStartDate = new Date(startDate);
+      const dateEndDate = new Date(endDate);
+      const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
+      // const dateNumber = date.getDate();
+      const startDateMouthName = months[dateStartDate.getMonth()];
+      const endDateMouthName = months[dateEndDate.getMonth()];
+      const startDateYear = dateStartDate.getFullYear();
+      const endDateYear = dateEndDate.getFullYear();
+      if (startDateYear === endDateYear) {
+        return `${startDateMouthName} - ${endDateMouthName} ${startDateYear}`;
+      }
+      return `${startDateMouthName} ${startDateYear} - ${endDateMouthName} ${endDateYear}`;
+    },
     DrawPoints(points, colour) {
       points.forEach((point) => {
+        console.log(point);
         const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         circle.setAttributeNS(null, 'cx', point[0]);
         circle.setAttributeNS(null, 'cy', point[1]);
@@ -201,6 +222,31 @@ export default {
       //   document.getElementById('svg').appendChild(circle);
       // }
     },
+    DrawPoint(point, Xposition, Yposition) {
+      const colour = '#2563EB';
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttributeNS(null, 'cx', point[0]);
+      circle.setAttributeNS(null, 'cy', point[1]);
+      circle.setAttributeNS(null, 'r', 10);
+      circle.setAttributeNS(null, 'fill', colour);
+      document.getElementById('svg').appendChild(circle);
+      if (Xposition === 1) {
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttributeNS(null, 'x', point[0] + 20);
+        text.setAttributeNS(null, 'y', point[1] + 5);
+        text.classList = 'text-lg text-black font-bold';
+        text.textContent = this.formatDates(this.Parcourt[Yposition].startDate, this.Parcourt[Yposition].endDate);
+        document.getElementById('svg').appendChild(text);
+      } else {
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttributeNS(null, 'y', point[1] + 5);
+        text.classList = 'text-lg text-black font-bold';
+        text.textContent = this.formatDates(this.Parcourt[Yposition].startDate, this.Parcourt[Yposition].endDate);
+        document.getElementById('svg').appendChild(text);
+        console.log(text.getBBox());
+        text.setAttributeNS(null, 'x', point[0] - 20 - text.getBBox().width);
+      }
+    },
     CalcPoints(repeat, randRange, xSpacing, ySpacing) {
       let points = `[[0,0][${this.width / 4},50]`;
       let i = 0;
@@ -209,9 +255,11 @@ export default {
         if (i % 2 === 0) {
           points += `[${this.width / 2 + xSpacing + this.Random(randRange)},${ii * ySpacing + 50 + this.Random(randRange)}]`;
           points += `[${this.width / 2 + xSpacing + this.Random(randRange)},${ii * ySpacing + ySpacing + 50 + this.Random(randRange)}]`;
+          this.DrawPoint(JSON.parse(`[${this.width / 2 + xSpacing + this.Random(randRange)},${ii * ySpacing + ySpacing + 50 + this.Random(randRange)}]`), 1, i);
         } else {
           points += `[${this.width / 2 - xSpacing + this.Random(randRange)},${ii * ySpacing + 50 + this.Random(randRange)}]`;
           points += `[${this.width / 2 - xSpacing + this.Random(randRange)},${ii * ySpacing + ySpacing + 50 + this.Random(randRange)}]`;
+          this.DrawPoint(JSON.parse(`[${this.width / 2 - xSpacing + this.Random(randRange)},${ii * ySpacing + ySpacing + 50 + this.Random(randRange)}]`), 0, i);
         }
       }
       if (i % 2 !== 0) {
@@ -223,8 +271,6 @@ export default {
       const pointsObject = JSON.parse(points);
       const pathString = this.GeneratePath(pointsObject, false);
       this.DrawBezier(pathString, '#2563EB');
-      this.DrawPoints(pointsObject, '#33ff33');
-      // console.log(pointsObject);
     },
   },
   computed: {
@@ -237,25 +283,13 @@ export default {
       return allParcourt;
       // return allParcourt.slice(0, 3);
     },
-    svgStyle() {
-      return {
-        width: window.innerWidth - 20,
-        height: 150 * this.pointsRepeat * 2 + 300,
-      };
-    },
-    ReturnYSpacing() {
-      return {
-        height: this.ySpacing,
-      };
-    },
   },
   mounted() {
-    this.width = window.innerWidth;
+    this.width = window.innerWidth - 22;
     this.CalcPoints(this.pointsRepeat, 0, this.width / 6, this.ySpacing);
-    // erer
+    document.getElementById('svg').style.width = `${this.width}px`;
     window.addEventListener('resize', () => {
-      // this.svgStyle();
-      this.width = window.innerWidth - 20;
+      this.width = window.innerWidth - 22;
       const element = document.getElementById('svg');
       while (element.firstChild) {
         console.log(element.firstChild);
