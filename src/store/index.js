@@ -153,7 +153,7 @@ export default createStore({
         placement: 'Saint-Vallier',
         role: 'Equipier polyvalent',
         shortDesc: 'Emploi étudiant.',
-        startDate: '01/03/2021',
+        startDate: '03/01/2021',
         endDate: '03/01/2022',
       },
       {
@@ -162,7 +162,7 @@ export default createStore({
         placement: 'Lyon',
         role: 'Stagiaire',
         shortDesc: 'Création et utilisation d’un serveur domotique sur un raspberry utilisation de docker et Node Red pour créer des scénarios et lier les appareils de différentes marques.',
-        startDate: '01/12/2019',
+        startDate: '12/01/2019',
         endDate: '12/08/2019',
       },
       {
@@ -171,7 +171,7 @@ export default createStore({
         placement: 'Saint-Vallier',
         role: 'Stagiaire',
         shortDesc: 'Utilisation de Linux, dépannage, réparation de matériel informatique, communication avec la clientèle afin de comprendre leur demande.',
-        startDate: '01/09/2019',
+        startDate: '09/01/2019',
         endDate: '10/01/2019',
       },
       {
@@ -180,7 +180,7 @@ export default createStore({
         placement: 'Saintes-Maries-de-la-Mer',
         role: 'Serveur en restauration',
         shortDesc: 'Service, relationnel avec clients, gestion de la salle.',
-        startDate: '01/07/2019',
+        startDate: '07/01/2019',
         endDate: '08/01/2019',
       },
       {
@@ -189,7 +189,7 @@ export default createStore({
         placement: 'Saint-Désirat',
         role: 'Stagiaire',
         shortDesc: 'Mise à jour du site internet, correction de bug, amélioration et optimisation de la barre de navigation et ajout d\'éléments.',
-        startDate: '01/06/2019',
+        startDate: '06/01/2019',
         endDate: '07/01/2019',
       },
       {
@@ -198,7 +198,7 @@ export default createStore({
         placement: 'Secteur Annonay',
         role: 'Stagiaire',
         shortDesc: 'Observation de l\'installation de réseaux fibre et ADSL, branchement de jartier dans les centraux Téléphoniques et compréhension de l\'infrastructure réseau d’une ville.',
-        startDate: '01/09/2018',
+        startDate: '09/01/2018',
         endDate: '12/01/2018',
       },
       {
@@ -207,7 +207,7 @@ export default createStore({
         placement: 'Vienne',
         role: 'Stagiaire',
         shortDesc: 'Création de serveurs Windows et Linux via une machine virtuelle, essai de mise en place de GPO (stratégie de Groupe),  Création de domaines sur serveur, installation de logiciels, Préparation de commandes des clients.',
-        startDate: '01/05/2018',
+        startDate: '05/01/2018',
         endDate: '06/01/2018',
       },
     ],

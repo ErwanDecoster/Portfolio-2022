@@ -122,11 +122,11 @@
     <section class="min-h-screen py-16">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Parcours</h2>
-      <div class="flex flex-col gap-20" :style="{ 'padding-top': (200 + ySpacing / 2 - 30) + 'px' }">
+        <div class="flex flex-col gap-20" :style="{ 'padding-top': (200 + ySpacing / 2 - 30) + 'px' }">
+          <span id="span" class="absolute rounded-full z-10 bg-blue-600 shadow-md shadow-blue-600/50 w-10 h-10 left-0" :style="{ 'margin-top': -(200 + ySpacing / 2 - 30) + 'px' }"></span>
           <svg ref="svg" id="svg" height="3000" :style="{ 'margin-top': -(200 + ySpacing / 2 - 30) + 'px' }" stroke-dasharray="14" stroke-linecap="round" class="absolute left-0 pointer-events-none"></svg>
-          <div :style="{ 'margin-top': -(200 + ySpacing / 2 - 30) + 'px' }" id="steps" class="bg-red-200 absolute left-0 w-10 h-10 "></div>
           <div class="flex flex-col gap-2" :style="{ gap: ySpacing - 50 + 'px' }">
-            <div v-for="row in Parcourt" :key="row" class="bg-white border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl max-w-lg p-3 flex flex-col justify-between" :style="{ height: ySpacing + 50 + 'px' }" :class="[{ 'sm:ml-auto': (row.id % 2 !== 0) },{ 'sm:mr-auto': (row.id % 2 === 0)}]">
+            <div v-for="row in Parcourt" :key="row" class="bg-white border-2 z-10 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl max-w-lg p-3 flex flex-col justify-between" :style="{ height: ySpacing + 50 + 'px' }" :class="[{ 'sm:ml-auto': (row.id % 2 !== 0) },{ 'sm:mr-auto': (row.id % 2 === 0)}]">
               <div class="flex flex-col">
                 <h3 class="font-bold text-xl">{{ row.company }} - <span class="font-light">{{ row.role }}</span></h3>
                 <p class="text-sm">{{ row.placement }}</p>
@@ -199,29 +199,24 @@ export default {
       const startDateYear = dateStartDate.getFullYear();
       const endDateYear = dateEndDate.getFullYear();
       if (startDateYear === endDateYear) {
+        if (startDateMouthName === endDateMouthName) {
+          return `${startDateMouthName} ${startDateYear}`;
+        }
         return `${startDateMouthName} - ${endDateMouthName} ${startDateYear}`;
       }
       return `${startDateMouthName} ${startDateYear} - ${endDateMouthName} ${endDateYear}`;
     },
-    DrawPoints(points, colour) {
-      points.forEach((point) => {
-        console.log(point);
-        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circle.setAttributeNS(null, 'cx', point[0]);
-        circle.setAttributeNS(null, 'cy', point[1]);
-        circle.setAttributeNS(null, 'r', 6);
-        circle.setAttributeNS(null, 'fill', colour);
-        document.getElementById('svg').appendChild(circle);
-      });
-      // for (const point of points) {
-      //   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      //   circle.setAttributeNS(null, 'cx', point[0]);
-      //   circle.setAttributeNS(null, 'cy', point[1]);
-      //   circle.setAttributeNS(null, 'r', 6);
-      //   circle.setAttributeNS(null, 'fill', colour);
-      //   document.getElementById('svg').appendChild(circle);
-      // }
-    },
+    // DrawPoints(points, colour) {
+    //   points.forEach((point) => {
+    //     console.log(point);
+    //     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    //     circle.setAttributeNS(null, 'cx', point[0]);
+    //     circle.setAttributeNS(null, 'cy', point[1]);
+    //     circle.setAttributeNS(null, 'r', 6);
+    //     circle.setAttributeNS(null, 'fill', colour);
+    //     document.getElementById('svg').appendChild(circle);
+    //   });
+    // },
     DrawPoint(point, Xposition, Yposition) {
       const colour = '#2563EB';
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
@@ -243,7 +238,6 @@ export default {
         text.classList = 'text-lg text-black font-bold';
         text.textContent = this.formatDates(this.Parcourt[Yposition].startDate, this.Parcourt[Yposition].endDate);
         document.getElementById('svg').appendChild(text);
-        console.log(text.getBBox());
         text.setAttributeNS(null, 'x', point[0] - 20 - text.getBBox().width);
       }
     },
@@ -292,12 +286,25 @@ export default {
       this.width = window.innerWidth - 22;
       const element = document.getElementById('svg');
       while (element.firstChild) {
-        console.log(element.firstChild);
         element.removeChild(element.firstChild);
-        console.log('test1');
       }
       element.style.width = `${this.width}px`;
       this.CalcPoints(this.pointsRepeat, 0, this.width / 6, this.ySpacing);
+    });
+    window.addEventListener('scroll', () => {
+      const svg = document.querySelector('#svg');
+      const svgData = svg.getBoundingClientRect();
+      const screenHeight = window.screen.height;
+      const path = document.querySelector('#svg path').getAttribute('d');
+      // if (svgData.top < 0) {
+      // const distanceParcouru = ((svgData.top + screenHeight) / 2 / svgData.height) * 100;
+      const distanceParcouru = -((svgData.top) / svgData.height) * 100;
+      console.log(`${distanceParcouru} %`);
+      const span = document.querySelector('#span');
+      span.style.offsetPath = `path('${path}')`;
+      span.style.offsetDistance = `calc(${distanceParcouru}% + ${screenHeight / 2}px)`;
+      // }
+      // console.log(window.pageYOffset);
     });
   },
 };

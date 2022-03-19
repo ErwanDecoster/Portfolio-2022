@@ -1,5 +1,5 @@
 <template>
-  <header class="p-4 fixed inset-x-0 z-10">
+  <header class="p-4 fixed inset-x-0 z-20">
     <div class="max-w-screen-lg mx-auto">
       <nav class="flex justify-between">
         <router-link to="/" class="px-4 py-2 ">erwan.pro</router-link>
