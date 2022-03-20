@@ -71,9 +71,16 @@
 <script>
 
 export default {
+  name: 'Realisations',
+  data() {
+    return {
+      Realisation: '',
+    };
+  },
   conputed: {
     Realisation() {
       const allRealisation = this.$store.state.realisation;
+      console.log(allRealisation);
       return allRealisation.slice(0, 3);
     },
   },

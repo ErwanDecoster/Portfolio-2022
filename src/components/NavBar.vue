@@ -8,7 +8,8 @@
             <router-link to="/" class="px-4 py-2">A propo de moi</router-link>
             <router-link to="/" class="px-4 py-2">Réalisations</router-link>
             <router-link to="/" class="px-4 py-2">Parcours</router-link>
-            <router-link to="/" class="px-4 py-2">Veille</router-link>
+            <router-link to="/" class="px-4 py-2">Blocs de competences</router-link>
+            <!-- <router-link to="/" class="px-4 py-2">Veille</router-link> -->
             <router-link to="/" class="px-4 py-2 bg-blue-600 shadow-md text-white rounded-xl">Contact</router-link>
           </li>
         </ul>
