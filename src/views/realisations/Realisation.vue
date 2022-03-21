@@ -1,10 +1,12 @@
 <template>
-  <section class="h-[50vh] py-60">
+  <section class="h-[40vh] py-60">
       <div class="flex gap-8 max-w-screen-lg mx-auto px-3">
         <div class="flex flex-col gap-6">
           <h1 class="text-7xl font-semibold text-left flex flex-col gap-4">
-            Realisations
+            {{ this.realisation.name }}
+            <!-- {{ this.realisation['name'] }} -->
           </h1>
+            <!-- {{ $route.params.name }} -->
         </div>
         <svg width="202" height="201" viewBox="0 0 202 201" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_102_73)">
@@ -44,12 +46,22 @@
     </section>
     <section class="py-16">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
-        <!-- <h2 class="text-3xl font-bold text-center mx-auto">Réalisations</h2> -->
-        <div class="flex flex-col gap-20" >
-          <div v-for="row in Realisation()" v-bind:key="row" class="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <Realisation :data="row" />
-          </div>
+        <div class="flex gap-4">
+          <a v-show="this.realisation.website" :href="`https://${this.realisation.website}`" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Visité le site</a>
+          <a v-show="this.realisation.github" :href="this.realisation.github" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center w-fit">Github</a>
         </div>
+        <div>
+          <p>Technologie utilisées :</p>
+          <ul class="flex gap-2 flex-wrap">
+            <li class="py-1 px-3 bg-red-500 text-white text-sm rounded-md" v-for="tech in this.realisation.techno" v-bind:key="tech" :style="'background-color: #' + tech.color">{{ tech.name }}</li>
+          </ul>
+        </div>
+        <div v-show="this.realisation.objectif">
+          <p>Objectif :</p>
+          <p>{{ this.realisation.objectif }}</p>
+        </div>
+        <!-- <h2 class="text-3xl font-bold text-center mx-auto">Réalisations</h2> -->
+        {{ this.realisation }}
       </div>
     </section>
     <Footer />
@@ -57,23 +69,32 @@
 
 <script>
 import Footer from '@/components/Footer.vue';
-import Realisation from '@/components/Realisation.vue';
 
 export default {
   name: 'Realisations',
   components: {
     Footer,
-    Realisation,
   },
   data() {
     return {
+      // realisation: this.Realisation(),
+      realisation: '',
     };
   },
   methods: {
     Realisation() {
-      const allRealisation = this.$store.state.realisation;
-      return allRealisation;
+      const realisations = this.$store.state.realisation;
+      console.log(realisations);
+      realisations.forEach((realisation) => {
+        if (realisation.pathName === this.$route.params.name) {
+          console.log(realisation);
+          this.realisation = realisation;
+        }
+      });
     },
+  },
+  mounted() {
+    this.Realisation();
   },
 };
 </script>

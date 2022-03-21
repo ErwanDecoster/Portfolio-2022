@@ -99,24 +99,10 @@
         <h2 class="text-3xl font-bold text-center mx-auto">Réalisations</h2>
         <div class="flex flex-col gap-20" >
           <div v-for="row in Realisation" v-bind:key="row" class="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <img class="w-full shadow-md rounded-xl aspect-video" src="" alt="" :class="{ 'order-1': row.imgAlignment === 0 }">
-            <div class="flex flex-col gap-2">
-              <div>
-                <h3 class="text-left text-3xl">{{ row.name }}</h3>
-                <p class="text-sm text-left text-neutral-500">{{ row.type }}</p>
-              </div>
-              <ul class="flex gap-2 flex-wrap">
-                <li class="py-1 px-3 bg-red-500 text-white text-sm rounded-md" v-for="tech in row.techno" v-bind:key="tech" :style="'background-color: #' + tech.color">{{ tech.name }}</li>
-              </ul>
-              <p class="text-left grow-[1]">{{ row.shortDesc }}</p>
-              <div class="flex gap-4">
-                <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center" href="">Visiter le site</a>
-                <router-link to="/" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Plus d'informations</router-link>
-              </div>
-            </div>
+            <Realisation :data="row" />
           </div>
         </div>
-        <router-link to="/Realisations" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl w-fit mx-auto items-center">Voir toutes les réalisations</router-link>
+        <router-link to="/realisations" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl w-fit mx-auto items-center">Voir toutes les réalisations</router-link>
       </div>
     </section>
     <section class="min-h-screen py-16">
@@ -168,6 +154,7 @@
 <script>
 import Footer from '@/components/Footer.vue';
 import ContactForm from '@/components/ContactForm.vue';
+import Realisation from '@/components/Realisation.vue';
 
 export default {
   name: 'Home',
@@ -183,6 +170,7 @@ export default {
   components: {
     Footer,
     ContactForm,
+    Realisation,
   },
   methods: {
     Random(range) {

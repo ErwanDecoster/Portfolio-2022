@@ -1,0 +1,24 @@
+<template>
+  <img class="w-full shadow-md rounded-xl aspect-video" src="" alt="" :class="{ 'order-1': data.imgAlignment === 0 }">
+  <div class="flex flex-col gap-2">
+    <div>
+      <h3 class="text-left text-3xl">{{ data.name }}</h3>
+      <p class="text-sm text-left text-neutral-500">{{ data.type }}</p>
+    </div>
+    <ul class="flex gap-2 flex-wrap">
+      <li class="py-1 px-3 bg-red-500 text-white text-sm rounded-md" v-for="tech in data.techno" v-bind:key="tech" :style="'background-color: #' + tech.color">{{ tech.name }}</li>
+    </ul>
+    <p class="text-left grow-[1]">{{ data.shortDesc }}</p>
+    <div class="flex gap-4">
+      <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center" href="">Visiter le site</a>
+      <router-link :to="{ name: 'realisation', params: { name: data.pathName }}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Plus d'informations</router-link>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  props: ['data'],
+};
+</script>

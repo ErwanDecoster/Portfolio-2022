@@ -4,7 +4,9 @@ export default createStore({
   state: {
     realisation: [
       {
+        id: 0,
         name: 'Covoit',
+        pathName: 'covoit',
         type: 'Projet d\'etude',
         techno: [
           {
@@ -33,15 +35,17 @@ export default createStore({
           },
         ],
         shortDesc: 'Web App de covoiturage',
-        website: 'covoit.fr',
+        // website: 'covoit.fr',
         github: 'https://github.com/ErwanDecoster/Covoit',
         img: 'covoit.webp',
         imgAlignment: 0,
-        objectif: '',
+        // objectif: '',
         comment: '',
       },
       {
+        id: 1,
         name: 'Phoenix Vêtements et Protection',
+        pathName: 'phoenix_vetements_et_protection',
         type: 'Projet prefesionnel',
         techno: [
           {
@@ -59,14 +63,16 @@ export default createStore({
         ],
         shortDesc: 'Site vitrine de l’entreprise Phoenix Vêtements et Protection',
         website: 'http://phoenix-vetements.com/',
-        github: '',
+        // github: '',
         img: 'phoenix.webp',
         imgAlignment: 1,
         objectif: '',
         comment: '',
       },
       {
+        id: 2,
         name: 'WaterCollect - Dashboard',
+        pathName: 'watercollect_dashboard',
         type: 'Projet prefesionnel',
         techno: [
           {
@@ -95,11 +101,13 @@ export default createStore({
         // github: '',
         img: 'covoit.webp',
         imgAlignment: 0,
-        objectif: '',
+        // objectif: '',
         comment: '',
       },
       {
-        name: 'WaterCollect -  Simulateur',
+        id: 3,
+        name: 'WaterCollect - Simulateur',
+        pathName: 'watercollect_simulateur',
         type: 'Projet prefesionnel',
         techno: [
           {
