@@ -22,7 +22,7 @@
             <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="">Mensions lègales</a>
           </li>
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="">Contact</a>
+            <router-link :to="{ name: 'home', hash: '#contact_form'}" class="hover:underline underline-offset-1 py-[1px] px-8 inline-block">Contact</router-link>
           </li>
         </ul>
       </div>

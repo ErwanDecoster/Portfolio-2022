@@ -38,14 +38,38 @@ export default createStore({
         // website: 'covoit.fr',
         github: 'https://github.com/ErwanDecoster/Covoit',
         img: 'covoit.webp',
-        imgAlignment: 0,
-        // objectif: '',
+        projectOrigine: 'Après avoir réfléchi sur ce que l’on voulait faire, nous avons opté de partir sur la création d’une application déjà existante qui est Blablacar. Notre application a pour but d’être gratuite pour tous les utilisateurs. Ceci a pour effet de toucher une plus grande partie de la population en optant pour ce modèle économique.',
+        projectObjectif: 'Créer une application ayant une excellente accessibilité pour toutes les tranches d’âge de la population. Créer des fonctionnalités et une interface ergonomique. Avoir une application simple d’utilisation.',
+        projectDescription: 'Il s’agit d’un projet consistant à réaliser une web app de covoiturage adapté au mobile et au PC; le but: définir un point de départ et d\'arrivée et choisir les autres utilisateurs que l’on veut prendre sur notre passage ou inversement et trouver un conducteur pour aller la on l’on souhaite.',
+        foncionalites: [
+          {
+            for: 'Conducteur',
+            foncionalitesFor: [
+              { name: 'Créer un voyage avec un point de départ et d’arrivée ainsi que l’heure de départ.' },
+              { name: 'Modifier ces informations personnelles: nom, prénom, téléphone, mot de passe.' },
+              { name: 'Visualiser les personnes acceptées dans son trajet, où est-ce qu’il doit le récupérer, les étapes intermédiaire' },
+              { name: 'Accepter ou refuser un utilisateur qui veut rejoindre son trajet.' },
+              { name: 'Choix du véhicule pour le voyage, ainsi que de la motorisation.' },
+            ],
+          },
+          {
+            for: 'Passager',
+            foncionalitesFor: [
+              { name: 'Rejoindre un voyage.' },
+              { name: 'Voir l\'ensemble des voyages.' },
+              { name: 'Voir toutes ces informations relatives à son compte: nom, prénom, téléphone.' },
+              { name: 'Modifier ces informations personnelles: nom, prénom, téléphone, mot de passe.' },
+              { name: 'Il recherche un conducteur pour faire son trajet, indique le point de départ et d’arrivée ainsi que l’horaire à laquel il part, à ce moment les trajets qui ont le même point d\'arrivée lui sont proposés.' },
+              { name: 'Programmer un départ.' },
+            ],
+          },
+        ],
         comment: '',
       },
       {
         id: 1,
-        name: 'Phoenix Vêtements et Protection',
-        pathName: 'phoenix_vetements_et_protection',
+        name: 'Phoenix Vêtements et Protection - Site internet',
+        pathName: 'phoenix_vetements_et_protection_site_internet',
         type: 'Projet prefesionnel',
         techno: [
           {
@@ -66,7 +90,7 @@ export default createStore({
         // github: '',
         img: 'phoenix.webp',
         imgAlignment: 1,
-        objectif: '',
+        objectif: 'Refonte complete du site de l\'entreprise Phoenix Vêtements et Protection, creation d\'une maquette..',
         comment: '',
       },
       {
@@ -139,26 +163,68 @@ export default createStore({
     parcourt: [
       {
         id: 0,
-        company: 'Phoenix Vêtements',
-        placement: 'Davezieux',
+        companyName: 'Phoenix Vêtements et Protection',
+        placementCity: 'Davezieux',
+        placementZipCode: '07340',
+        placementAdress: 'Rue des Frères Seguins',
+        companyDesc: 'l\'entreprise Phoenix Vêtements et Protection fondé par Fabrice Atias en #### est speciliser dans vente de vetement et d\'equipement EPI',
+        localisationImgLink: '',
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12341.399133235342!2d4.693240915796706!3d45.24934182126644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xee55ab29a5ed411d!2sPhoenix%20V%C3%AAtements%20et%20Protection!5e0!3m2!1sen!2sfr!4v1648500343481!5m2!1sen!2sfr',
+        missions:
+        [
+          {
+            name: 'Creation du site vitrine.',
+            desc: 'Le site de l\'emtreprise se faisent viesant une refonte complete fut realisé',
+            assosiedProjetPath: 'phoenix_vetements_et_protection_site_internet',
+          },
+        ],
+        path: 'phoenix_vetements_et_protection',
         role: 'Stagiaire',
-        shortDesc: 'Refonte complète du site internet de l’entreprise, creation des signatures de mail',
+        shortDesc: 'Refonte complète du site internet de l’entreprise, creation des signatures de mail...',
         startDate: '01/01/2022',
         endDate: '02/01/2022',
       },
       {
         id: 1,
-        company: 'WaterCollect',
-        placement: 'Lyon - Villeurbanne',
+        companyName: 'WaterCollect',
+        placementCity: 'Lyon - Villeurbanne',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: 'C\'est à Toulon que Thomas et Hendrix, alors étudiants en école d’ingénieurs, ont commencé à s’intéresser aux enjeux de préservation des ressources en eau.<br><br>« Nous pensons que le recyclage de l’eau est un enjeu clé du développement durable.<br><br>En effet, chaque jour de l’eau potable est gaspillée dans nos toilettes et c’est pour nous une aberration. »<br<br>>Pour y remédier ils ont fondé WaterCollect qui développe des solutions de recyclage des eaux grises domestiques.',
+        localisationImgLink: '',
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d536.4025433531451!2d4.871044997678743!3d45.78097000568698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd84a368148122bb8!2sWaterCollect!5e0!3m2!1sen!2sfr!4v1648502365468!5m2!1sen!2sfr',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'watercollect',
         role: 'Stagiaire',
         shortDesc: 'Création et intégration sur le site WordPresse de plusieurs simulateurs en HTML et JS et création d’un dashboard avec un côté administrateur et client accessible depuis un sous domaine du site.',
-        startDate: '01/05/2021',
+        startDate: '05/01/2021',
         endDate: '06/01/2021',
       },
       {
         id: 2,
-        company: 'McDonald\'s',
-        placement: 'Saint-Vallier',
+        companyName: 'McDonald\'s',
+        placementCity: 'Saint-Vallier',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'mcdonalds',
         role: 'Equipier polyvalent',
         shortDesc: 'Emploi étudiant.',
         startDate: '03/01/2021',
@@ -166,8 +232,22 @@ export default createStore({
       },
       {
         id: 3,
-        company: 'Eco Domino',
-        placement: 'Lyon',
+        companyName: 'Eco Domino',
+        placementCity: 'Lyon',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'eco_domino',
         role: 'Stagiaire',
         shortDesc: 'Création et utilisation d’un serveur domotique sur un raspberry utilisation de docker et Node Red pour créer des scénarios et lier les appareils de différentes marques.',
         startDate: '12/01/2019',
@@ -175,8 +255,22 @@ export default createStore({
       },
       {
         id: 4,
-        company: 'BBI informatique',
-        placement: 'Saint-Vallier',
+        companyName: 'BBI informatique',
+        placementCity: 'Saint-Vallier',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'bbi_informatique',
         role: 'Stagiaire',
         shortDesc: 'Utilisation de Linux, dépannage, réparation de matériel informatique, communication avec la clientèle afin de comprendre leur demande.',
         startDate: '09/01/2019',
@@ -184,8 +278,22 @@ export default createStore({
       },
       {
         id: 5,
-        company: 'Farniente Plage',
-        placement: 'Saintes-Maries-de-la-Mer',
+        companyName: 'Farniente Plage',
+        placementCity: 'Saintes-Maries-de-la-Mer',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'farniente_plage',
         role: 'Serveur en restauration',
         shortDesc: 'Service, relationnel avec clients, gestion de la salle.',
         startDate: '07/01/2019',
@@ -193,8 +301,22 @@ export default createStore({
       },
       {
         id: 6,
-        company: 'Mairie de Saint Désirat',
-        placement: 'Saint-Désirat',
+        companyName: 'Mairie de Saint Désirat',
+        placementCity: 'Saint-Désirat',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'marie_de_saint_desirat',
         role: 'Stagiaire',
         shortDesc: 'Mise à jour du site internet, correction de bug, amélioration et optimisation de la barre de navigation et ajout d\'éléments.',
         startDate: '06/01/2019',
@@ -202,8 +324,22 @@ export default createStore({
       },
       {
         id: 7,
-        company: 'Societe dromoise de travaux SDT',
-        placement: 'Secteur Annonay',
+        companyName: 'Societe dromoise de travaux SDT',
+        placementCity: 'Secteur Annonay',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'societe_dromoise_de_travaux_sdt',
         role: 'Stagiaire',
         shortDesc: 'Observation de l\'installation de réseaux fibre et ADSL, branchement de jartier dans les centraux Téléphoniques et compréhension de l\'infrastructure réseau d’une ville.',
         startDate: '09/01/2018',
@@ -211,8 +347,22 @@ export default createStore({
       },
       {
         id: 8,
-        company: 'Imagine Développement',
-        placement: 'Vienne',
+        companyName: 'Imagine Développement',
+        placementCity: 'Vienne',
+        placementZipCode: '',
+        placementAdress: '',
+        companyDesc: '',
+        localisationImgLink: '',
+        localisationMapsLink: '',
+        missions:
+        [
+          {
+            name: '',
+            desc: '',
+            assosiedProjetPath: '',
+          },
+        ],
+        path: 'imagine_developpement',
         role: 'Stagiaire',
         shortDesc: 'Création de serveurs Windows et Linux via une machine virtuelle, essai de mise en place de GPO (stratégie de Groupe),  Création de domaines sur serveur, installation de logiciels, Préparation de commandes des clients.',
         startDate: '05/01/2018',

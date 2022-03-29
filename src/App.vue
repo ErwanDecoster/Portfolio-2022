@@ -18,7 +18,9 @@ export default {
 body {
   font-family: 'Nunito', sans-serif;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 #nav {
   padding: 30px;
 }

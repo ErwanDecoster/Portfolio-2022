@@ -1,6 +1,5 @@
 <template>
-  <img class="w-full shadow-md rounded-xl aspect-video" src="" alt="" :class="{ 'order-1': data.imgAlignment === 0 }">
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2" :class="[ {'md:order-1': data.id % 2 != 0} ]">
     <div>
       <h3 class="text-left text-3xl">{{ data.name }}</h3>
       <p class="text-sm text-left text-neutral-500">{{ data.type }}</p>
@@ -14,6 +13,7 @@
       <router-link :to="{ name: 'realisation', params: { name: data.pathName }}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Plus d'informations</router-link>
     </div>
   </div>
+  <img class="w-full shadow-md rounded-xl aspect-video" src="" alt="">
 </template>
 
 <script>

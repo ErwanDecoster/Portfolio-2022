@@ -24,7 +24,7 @@
             <span>Decoster</span>
             <span>Erwan</span>
           </h1>
-          <router-link to="/" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl items-center w-fit">Me contacter</router-link>
+          <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
         </div>
         <svg width="202" height="201" viewBox="0 0 202 201" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_102_73)">
@@ -62,7 +62,7 @@
         </svg>
       </div>
     </section>
-    <section class="">
+    <section class="py-16" id="a_propos_de_moi">
       <div class="max-w-screen-lg mx-auto px-3">
         <h2 class="text-3xl font-bold text-center mx-auto">A propos de moi</h2>
         <div class="grid md:grid-cols-2">
@@ -88,13 +88,13 @@
                 Telecharger CV
                 <img class="h-6" src="@/assets/download-outline.svg" alt="">
               </router-link>
-              <router-link to="/" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Me contacter</router-link>
+              <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Me contacter</router-link>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="min-h-screen py-16">
+    <section class="min-h-screen py-16" id="realisations">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Réalisations</h2>
         <div class="flex flex-col gap-20" >
@@ -105,7 +105,7 @@
         <router-link to="/realisations" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl w-fit mx-auto items-center">Voir toutes les réalisations</router-link>
       </div>
     </section>
-    <section class="min-h-screen py-16">
+    <section class="min-h-screen py-16" id="parcourts">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Parcours</h2>
         <div class="flex flex-col gap-20" :style="{ 'padding-top': (50 + ySpacing / 2 - 30) + 'px' }">
@@ -114,17 +114,19 @@
           <div class="flex flex-col gap-2" :style="{ gap: ySpacing - 50 + 'px' }">
             <div v-for="row in Parcourt" :key="row" class="bg-white border-2 z-10 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl max-w-lg p-3 flex flex-col justify-between" :style="{ height: ySpacing + 50 + 'px' }" :class="[{ 'sm:ml-auto': (row.id % 2 !== 0) },{ 'sm:mr-auto': (row.id % 2 === 0)}]">
               <div class="flex flex-col">
-                <h3 class="font-bold text-xl">{{ row.company }} - <span class="font-light">{{ row.role }}</span></h3>
-                <p class="text-sm">{{ row.placement }}</p>
+                <h3 class="font-bold text-xl">{{ row.companyName }} - <span class="font-light">{{ row.role }}</span></h3>
+                <p class="text-sm">{{ row.placementCity }}</p>
                 <p class="text-ellipsis overflow-hidden h-[72px]">{{ row.shortDesc }}</p>
               </div>
-              <router-link to="/" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link>
+              <!-- {{ row }} -->
+              <!-- <router-link to="/" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link> -->
+              <router-link :to="{ name: 'parcourt', params: { name: row.path }}" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="py-16">
+    <section class="py-16" id="test">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <h2 class="text-3xl font-bold text-center mx-auto">Blocs de conpetences</h2>
         <div class="flex flex-wrap justify-between gap-12 md:grid md:grid-cols-2">
@@ -146,7 +148,10 @@
         </div>
       </div>
     </section>
-    <ContactForm />
+    <div id="contact_form">
+      <ContactForm />
+    </div>
+    <button @click="RemoveHash">removehash</button>
     <Footer />
   </div>
 </template>
@@ -173,6 +178,9 @@ export default {
     Realisation,
   },
   methods: {
+    // RemoveHash() {
+    //   window.location.hash = '';
+    // },
     Random(range) {
       return -range / 2 + Math.floor(Math.random() * range);
     },
@@ -309,6 +317,7 @@ export default {
       this.CalcPoints(this.pointsRepeat, 0, this.width / 6, this.ySpacing);
     });
     window.addEventListener('scroll', () => {
+      // this.RemoveHash();
       const svg = document.querySelector('#svg');
       const svgData = svg.getBoundingClientRect();
       const screenHeight = window.screen.height;

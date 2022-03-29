@@ -50,19 +50,70 @@
           <a v-show="this.realisation.website" :href="`https://${this.realisation.website}`" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Visité le site</a>
           <a v-show="this.realisation.github" :href="this.realisation.github" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center w-fit">Github</a>
         </div>
-        <div>
-          <p>Technologie utilisées :</p>
+        <div class="grid gap-2">
+          <p class="font-bold text-lg">Technologie utilisées :</p>
           <ul class="flex gap-2 flex-wrap">
             <li class="py-1 px-3 bg-red-500 text-white text-sm rounded-md" v-for="tech in this.realisation.techno" v-bind:key="tech" :style="'background-color: #' + tech.color">{{ tech.name }}</li>
           </ul>
         </div>
-        <div v-show="this.realisation.objectif">
-          <p>Objectif :</p>
-          <p>{{ this.realisation.objectif }}</p>
+        <div class="grid grid-cols-2 gap-8">
+          <div v-show="this.realisation.objectif" class="flex flex-col gap-2">
+            <p class="font-bold text-lg">Objectif :</p>
+            <p>{{ this.realisation.objectif }}</p>
+          </div>
+          <img class="w-full aspect-video bg-blue-600" :src="this.realisation.img" alt="">
         </div>
         <!-- <h2 class="text-3xl font-bold text-center mx-auto">Réalisations</h2> -->
-        {{ this.realisation }}
+        <!-- {{ this.realisation }} -->
       </div>
+      <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
+      <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
+        <h2 class="font-bold text-3xl">Le projet</h2>
+        <div>
+          <h3 class="font-bold text-xl mb-2">projectOrigine</h3>
+          <p v-html="this.realisation.projectOrigine" class=""></p>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mb-2">projectObjectif</h3>
+          <p v-html="this.realisation.projectObjectif" class=""></p>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mb-2">projectDescription</h3>
+          <p v-html="this.realisation.projectDescription" class=""></p>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mb-2">Fonctionlités</h3>
+          <div v-for="foncionalite in this.realisation.foncionalites" :key="foncionalite">
+            <h4 class="font-bold text-lg mb-1">{{ foncionalite.for }}</h4>
+            <ul class="list-disc list-inside">
+              <li v-for="foncionaliteFor in foncionalite.foncionalitesFor" :key="foncionaliteFor">{{ foncionaliteFor.name }}</li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div>
+          <h3 class="font-bold text-lg mb-2">Localisation</h3>
+          <p class="">{{ this.parcourt.companyLocation }}</p>
+          <div class="grid grid-cols-2 gap-12">
+            <img class="bg-indigo-600 aspect-video rounded-lg" src="" alt="">
+            <iframe class="w-full aspect-video rounded-lg" :src="this.parcourt.localisationMapsLink" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div> -->
+      </div>
+      <!-- <div v-if="this.parcourt.missions" class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
+        <h2 class="font-bold text-3xl">Le stage</h2>
+        <div>
+          <h3 class="font-bold text-xl mb-2">Les missions</h3>
+          <div v-for="mission in this.parcourt.missions" :key="mission">
+            <h4 class="font-bold text-lg mb-1">{{ mission.name }}</h4>
+            <p>{{ mission.desc }}</p>
+            <div class="flex gap-4 items-center">
+              <p class="font-bold">En voir plus :</p>
+              <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
     </section>
     <Footer />
 </template>
@@ -71,7 +122,7 @@
 import Footer from '@/components/Footer.vue';
 
 export default {
-  name: 'Realisations',
+  name: 'Realisation',
   components: {
     Footer,
   },
