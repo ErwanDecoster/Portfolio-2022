@@ -1,5 +1,6 @@
 <template>
-  <section class="h-[40vh] py-60">
+  <div class="w-full">
+    <section class="h-[40vh] py-60">
       <div class="flex gap-8 max-w-screen-lg mx-auto px-3">
         <div class="flex flex-col gap-6">
           <h1 class="text-7xl font-semibold text-left flex flex-col gap-4">
@@ -47,8 +48,8 @@
     <section class="py-16">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <div class="flex gap-4">
-          <a v-show="this.realisation.website" :href="`https://${this.realisation.website}`" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Visité le site</a>
-          <a v-show="this.realisation.github" :href="this.realisation.github" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center w-fit">Github</a>
+          <a v-show="this.realisation.website" :href="`https://${this.realisation.website}`" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">Visiter le site</a>
+          <a v-for="row in this.realisation.githubLinks" :key="row" :href="row.link" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 rounded-xl flex items-center w-fit" target="_blank">{{ row.linkName }}</a>
         </div>
         <div class="grid gap-2">
           <p class="font-bold text-lg">Technologie utilisées :</p>
@@ -56,32 +57,31 @@
             <li class="py-1 px-3 bg-red-500 text-white text-sm rounded-md" v-for="tech in this.realisation.techno" v-bind:key="tech" :style="'background-color: #' + tech.color">{{ tech.name }}</li>
           </ul>
         </div>
-        <div class="grid grid-cols-2 gap-8">
-          <div v-show="this.realisation.objectif" class="flex flex-col gap-2">
-            <p class="font-bold text-lg">Objectif :</p>
-            <p>{{ this.realisation.objectif }}</p>
-          </div>
-          <img class="w-full aspect-video bg-blue-600" :src="this.realisation.img" alt="">
+        <div v-if="this.realisation.projectPartenaire" class="grid gap-2">
+          <p class="font-bold text-lg">Partenaire :</p>
+          <ul class="flex gap-2 flex-wrap">
+            <li v-for="partenaire in this.realisation.projectPartenaire" v-bind:key="partenaire">
+              <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit" :href="partenaire.link">{{ partenaire.name }}</a>
+            </li>
+          </ul>
         </div>
-        <!-- <h2 class="text-3xl font-bold text-center mx-auto">Réalisations</h2> -->
-        <!-- {{ this.realisation }} -->
       </div>
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
-      <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
+      <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white mt-16">
         <h2 class="font-bold text-3xl">Le projet</h2>
         <div>
-          <h3 class="font-bold text-xl mb-2">projectOrigine</h3>
+          <h3 class="font-bold text-xl mb-2">Origine</h3>
           <p v-html="this.realisation.projectOrigine" class=""></p>
         </div>
         <div>
-          <h3 class="font-bold text-xl mb-2">projectObjectif</h3>
+          <h3 class="font-bold text-xl mb-2">Objectif</h3>
           <p v-html="this.realisation.projectObjectif" class=""></p>
         </div>
         <div>
-          <h3 class="font-bold text-xl mb-2">projectDescription</h3>
+          <h3 class="font-bold text-xl mb-2">Description</h3>
           <p v-html="this.realisation.projectDescription" class=""></p>
         </div>
-        <div>
+        <div v-if="this.realisation.foncionalites">
           <h3 class="font-bold text-xl mb-2">Fonctionlités</h3>
           <div v-for="foncionalite in this.realisation.foncionalites" :key="foncionalite">
             <h4 class="font-bold text-lg mb-1">{{ foncionalite.for }}</h4>
@@ -90,14 +90,29 @@
             </ul>
           </div>
         </div>
-        <!-- <div>
-          <h3 class="font-bold text-lg mb-2">Localisation</h3>
-          <p class="">{{ this.parcourt.companyLocation }}</p>
-          <div class="grid grid-cols-2 gap-12">
-            <img class="bg-indigo-600 aspect-video rounded-lg" src="" alt="">
-            <iframe class="w-full aspect-video rounded-lg" :src="this.parcourt.localisationMapsLink" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div> -->
+        <div class="grid gap-2">
+          <h3 class="font-bold text-xl">Maquette</h3>
+          <img class="w-full h-80" src="" alt="">
+          <a :href="this.realisation.maquetteLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">{{ this.realisation.maquetteWebsite }}</a>
+        </div>
+      </div>
+      <div v-if="this.realisation.mcdImg || this.realisation.mldImg || this.realisation.mldImg" class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
+        <h2 class="font-bold text-3xl">Les données</h2>
+        <div v-if="this.realisation.mcdImg" class="grid gap-2">
+          <h3 class="font-bold text-xl">MCD</h3>
+          <img class="w-full h-80" :src="this.realisation.mcdImg" alt="">
+          <a :href="this.realisation.mcdLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+        </div>
+        <div v-if="this.realisation.mldImg" class="grid gap-2">
+          <h3 class="font-bold text-xl">MLD</h3>
+          <img class="w-full h-80" :src="this.realisation.mldImg" alt="">
+          <a :href="this.realisation.mldLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+        </div>
+        <div v-if="this.realisation.mpdImg" class="grid gap-2">
+          <h3 class="font-bold text-xl">MPD</h3>
+          <img class="w-full h-80" :src="this.realisation.mpdImg" alt="">
+          <a :href="this.realisation.mpdLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+        </div>
       </div>
       <!-- <div v-if="this.parcourt.missions" class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
         <h2 class="font-bold text-3xl">Le stage</h2>
@@ -108,7 +123,7 @@
             <p>{{ mission.desc }}</p>
             <div class="flex gap-4 items-center">
               <p class="font-bold">En voir plus :</p>
-              <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
+              <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
             </div>
           </div>
         </div>
@@ -116,6 +131,7 @@
     </div>
     </section>
     <Footer />
+  </div>
 </template>
 
 <script>
@@ -135,10 +151,10 @@ export default {
   methods: {
     Realisation() {
       const realisations = this.$store.state.realisation;
-      console.log(realisations);
+      // console.log(realisations);
       realisations.forEach((realisation) => {
         if (realisation.pathName === this.$route.params.name) {
-          console.log(realisation);
+          // console.log(realisation);
           this.realisation = realisation;
         }
       });

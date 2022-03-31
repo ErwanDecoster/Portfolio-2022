@@ -1,5 +1,7 @@
 <template>
-  <ContactForm class="py-40" />
+  <div class="w-full">
+    <ContactForm class="py-40" />
+  </div>
 </template>
 
 <script>

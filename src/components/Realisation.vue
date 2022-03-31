@@ -9,8 +9,9 @@
     </ul>
     <p class="text-left grow-[1]">{{ data.shortDesc }}</p>
     <div class="flex gap-4">
-      <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center" href="">Visiter le site</a>
-      <router-link :to="{ name: 'realisation', params: { name: data.pathName }}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Plus d'informations</router-link>
+      <!-- <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center" href="">Visiter le site</a> -->
+      <a v-show="data.website" :href="data.website" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">Visiter le site</a>
+      <router-link :to="{ name: 'realisation', params: { name: data.pathName }}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 rounded-xl flex items-center w-fit">Plus d'informations</router-link>
     </div>
   </div>
   <img class="w-full shadow-md rounded-xl aspect-video" src="" alt="">

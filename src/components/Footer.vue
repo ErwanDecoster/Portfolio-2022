@@ -5,13 +5,13 @@
         <p class="text-lg font-bold text-center">Mes liens</p>
         <ul class="flex flex-col items-center">
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://github.com/ErwanDecoster">Github</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://github.com/ErwanDecoster" target="_blank">Github</a>
           </li>
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://www.linkedin.com/in/erwan-decoster/">linkedin</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://www.linkedin.com/in/erwan-decoster/" target="_blank">linkedin</a>
           </li>
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://twitter.com/erwan0711">Twitter</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://twitter.com/erwan0711" target="_blank">Twitter</a>
           </li>
         </ul>
       </div>

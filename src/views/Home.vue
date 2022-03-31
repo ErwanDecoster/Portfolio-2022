@@ -1,20 +1,20 @@
 <template>
-  <div>
+  <div class="w-full">
     <section class="h-[90vh] py-60">
       <div class="flex gap-8 max-w-screen-lg mx-auto px-3">
         <ul class="pt-4 flex flex-col gap-4">
           <li>
-            <a href="https://github.com/ErwanDecoster">
+            <a href="https://github.com/ErwanDecoster" target="_blank">
               <img class="h-8" src="@/assets/logo-github.svg" alt="Logo du site github">
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/erwan-decoster/">
+            <a href="https://www.linkedin.com/in/erwan-decoster/" target="_blank">
               <img class="h-8" src="@/assets/logo-linkedin.svg" alt="Logo du site linkedin">
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/erwan0711">
+            <a href="https://twitter.com/erwan0711" target="_blank">
               <img class="h-8" src="@/assets/logo-twitter.svg" alt="Logo du site twitter">
             </a>
           </li>
@@ -24,7 +24,7 @@
             <span>Decoster</span>
             <span>Erwan</span>
           </h1>
-          <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
+          <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
         </div>
         <svg width="202" height="201" viewBox="0 0 202 201" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_102_73)">
@@ -84,11 +84,11 @@
               </li>
             </ul>
             <div class="flex gap-4">
-              <router-link to="/" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex gap-2 items-center">
+              <router-link to="/" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">
                 Telecharger CV
                 <img class="h-6" src="@/assets/download-outline.svg" alt="">
               </router-link>
-              <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl items-center">Me contacter</router-link>
+              <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
             </div>
           </div>
         </div>
@@ -119,8 +119,8 @@
                 <p class="text-ellipsis overflow-hidden h-[72px]">{{ row.shortDesc }}</p>
               </div>
               <!-- {{ row }} -->
-              <!-- <router-link to="/" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link> -->
-              <router-link :to="{ name: 'parcourt', params: { name: row.path }}" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link>
+              <!-- <router-link to="/" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link> -->
+              <router-link :to="{ name: 'parcourt', params: { name: row.path }}" class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Plus d'information</router-link>
             </div>
           </div>
         </div>
@@ -133,17 +133,17 @@
           <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] p-12 rounded-xl bg-white grid gap-2">
             <h3 class="font-bold text-xl">Bloc 1</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, assumenda voluptatibus. Repellat velit dolorem facilis. Quo suscipit qui nemo voluptatibus rerum. Vero necessitatibus, fuga ducimus repellat cumque eos sit error.</p>
-            <button class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Voir d'information</button>
+            <button class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Voir d'information</button>
           </div>
           <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] p-12 rounded-xl bg-white grid gap-2">
             <h3 class="font-bold text-xl">Bloc 2</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, assumenda voluptatibus. Repellat velit dolorem facilis. Quo suscipit qui nemo voluptatibus rerum. Vero necessitatibus, fuga ducimus repellat cumque eos sit error.</p>
-            <button class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Voir d'information</button>
+            <button class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Voir d'information</button>
           </div>
           <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] p-12 rounded-xl bg-white grid gap-2 md:col-span-2">
             <h3 class="font-bold text-xl">Bloc 3</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, assumenda voluptatibus. Repellat velit dolorem facilis. Quo suscipit qui nemo voluptatibus rerum. Vero necessitatibus, fuga ducimus repellat cumque eos sit error.</p>
-            <button class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 text-white rounded-xl flex items-center w-fit">Voir d'information</button>
+            <button class="ml-auto px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Voir d'information</button>
           </div>
         </div>
       </div>
@@ -151,7 +151,6 @@
     <div id="contact_form">
       <ContactForm />
     </div>
-    <button @click="RemoveHash">removehash</button>
     <Footer />
   </div>
 </template>
@@ -325,7 +324,7 @@ export default {
       // if (svgData.top < 0) {
       // const distanceParcouru = ((svgData.top + screenHeight) / 2 / svgData.height) * 100;
       const distanceParcouru = -((svgData.top) / svgData.height) * 100;
-      console.log(`${distanceParcouru} %`);
+      // console.log(`${distanceParcouru} %`);
       const span = document.querySelector('#span');
       span.style.offsetPath = `path('${path}')`;
       span.style.offsetDistance = `calc(${distanceParcouru}% + ${screenHeight / 2}px)`;
