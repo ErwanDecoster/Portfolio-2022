@@ -48,8 +48,8 @@
     <section class="py-16">
       <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
         <div class="flex gap-4">
-          <a v-show="this.realisation.website" :href="`https://${this.realisation.website}`" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">Visiter le site</a>
-          <a v-for="row in this.realisation.githubLinks" :key="row" :href="row.link" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 rounded-xl flex items-center w-fit" target="_blank">{{ row.linkName }}</a>
+          <a v-show="this.realisation.website" :href="`https://${this.realisation.website}`" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">Visiter le site</a>
+          <a v-for="row in this.realisation.githubLinks" :key="row" :href="row.link" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 rounded-xl flex items-center w-fit" target="_blank">{{ row.linkName }}</a>
         </div>
         <div class="grid gap-2">
           <p class="font-bold text-lg">Technologie utilisées :</p>
@@ -61,7 +61,7 @@
           <p class="font-bold text-lg">Partenaire :</p>
           <ul class="flex gap-2 flex-wrap">
             <li v-for="partenaire in this.realisation.projectPartenaire" v-bind:key="partenaire">
-              <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit" :href="partenaire.link">{{ partenaire.name }}</a>
+              <a class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit" :href="partenaire.link" target="_blank">{{ partenaire.name }}</a>
             </li>
           </ul>
         </div>
@@ -82,7 +82,7 @@
           <p v-html="this.realisation.projectDescription" class=""></p>
         </div>
         <div v-if="this.realisation.foncionalites">
-          <h3 class="font-bold text-xl mb-2">Fonctionlités</h3>
+          <h3 class="font-bold text-xl mb-2">Fonctionnalités</h3>
           <div v-for="foncionalite in this.realisation.foncionalites" :key="foncionalite">
             <h4 class="font-bold text-lg mb-1">{{ foncionalite.for }}</h4>
             <ul class="list-disc list-inside">
@@ -90,28 +90,50 @@
             </ul>
           </div>
         </div>
-        <div class="grid gap-2">
+        <div class="grid gap-2" v-show="this.realisation.maquetteImg">
           <h3 class="font-bold text-xl">Maquette</h3>
-          <img class="w-full h-80" src="" alt="">
-          <a :href="this.realisation.maquetteLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">{{ this.realisation.maquetteWebsite }}</a>
+          <img @click="maquetteImgModal = true" class="w-full h-80 object-cover rounded-xl border border-neutral-600" v-if="this.realisation.maquetteImg" :src="require(`@/assets/realisations/${this.realisation.maquetteImg}.png`)" alt="">
+          <!-- <img class="w-full h-80" src="@/assets/realisations/covoit_figma.png" alt=""> -->
+          <a :href="this.realisation.maquetteLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">{{ this.realisation.maquetteWebsite }}</a>
+          <Teleport to="#ModalSection">
+            <div v-if="maquetteImgModal === true">
+              <FullScreenImg :imgLink="this.realisation.maquetteImg" @close="maquetteImgModal = false" />
+            </div>
+          </Teleport>
         </div>
       </div>
       <div v-if="this.realisation.mcdImg || this.realisation.mldImg || this.realisation.mldImg" class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
         <h2 class="font-bold text-3xl">Les données</h2>
         <div v-if="this.realisation.mcdImg" class="grid gap-2">
           <h3 class="font-bold text-xl">MCD</h3>
-          <img class="w-full h-80" :src="this.realisation.mcdImg" alt="">
-          <a :href="this.realisation.mcdLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+          <img @click="mcdImgModal = true" class="w-full h-80 object-cover rounded-xl border border-neutral-600" v-if="this.realisation.mcdImg" :src="require(`@/assets/realisations/${this.realisation.mcdImg}.png`)" alt="">
+          <a :href="this.realisation.mcdLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+          <Teleport to="#ModalSection">
+            <div v-if="mcdImgModal === true">
+              <FullScreenImg :imgLink="this.realisation.mcdImg" @close="mcdImgModal = false" />
+            </div>
+          </Teleport>
         </div>
         <div v-if="this.realisation.mldImg" class="grid gap-2">
           <h3 class="font-bold text-xl">MLD</h3>
-          <img class="w-full h-80" :src="this.realisation.mldImg" alt="">
-          <a :href="this.realisation.mldLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+          <img @click="mldImgModal = true" class="w-full h-80 object-cover rounded-xl border border-neutral-600" v-if="this.realisation.mldImg" :src="require(`@/assets/realisations/${this.realisation.mldImg}.png`)" alt="">
+          <a :href="this.realisation.mldLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+          <Teleport to="#ModalSection">
+            <div v-if="mldImgModal === true">
+              <FullScreenImg :imgLink="this.realisation.mldImg" @close="mldImgModal = false" />
+            </div>
+          </Teleport>
         </div>
         <div v-if="this.realisation.mpdImg" class="grid gap-2">
           <h3 class="font-bold text-xl">MPD</h3>
-          <img class="w-full h-80" :src="this.realisation.mpdImg" alt="">
-          <a :href="this.realisation.mpdLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+          <img @click="mpdImgModal = true" class="w-full h-80 object-cover rounded-xl border border-neutral-600" v-if="this.realisation.mpdImg" :src="require(`@/assets/realisations/${this.realisation.mpdImg}.png`)" alt="">
+          <a :href="this.realisation.mpdLink" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Ressources associé</a>
+          <Teleport to="#ModalSection">
+            <div v-if="mpdImgModal === true">
+              <FullScreenImg :imgLink="this.realisation.mpdImg" @close="mpdImgModal = false" />
+            </div>
+          </Teleport>
+          <p></p>
         </div>
       </div>
       <!-- <div v-if="this.parcourt.missions" class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
@@ -123,7 +145,7 @@
             <p>{{ mission.desc }}</p>
             <div class="flex gap-4 items-center">
               <p class="font-bold">En voir plus :</p>
-              <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
+              <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
             </div>
           </div>
         </div>
@@ -136,16 +158,22 @@
 
 <script>
 import Footer from '@/components/Footer.vue';
+import FullScreenImg from '@/components/FullScreenImg.vue';
 
 export default {
   name: 'Realisation',
   components: {
     Footer,
+    FullScreenImg,
   },
   data() {
     return {
       // realisation: this.Realisation(),
       realisation: '',
+      maquetteImgModal: false,
+      mpdImgModal: false,
+      mldImgModal: false,
+      mcdImgModal: false,
     };
   },
   methods: {

@@ -5,13 +5,13 @@
         <p class="text-lg font-bold text-center">Mes liens</p>
         <ul class="flex flex-col items-center">
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://github.com/ErwanDecoster" target="_blank">Github</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center" href="https://github.com/ErwanDecoster" target="_blank">Github</a>
           </li>
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://www.linkedin.com/in/erwan-decoster/" target="_blank">linkedin</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center" href="https://www.linkedin.com/in/erwan-decoster/" target="_blank">linkedin</a>
           </li>
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="https://twitter.com/erwan0711" target="_blank">Twitter</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center" href="https://twitter.com/erwan0711" target="_blank">Twitter</a>
           </li>
         </ul>
       </div>
@@ -19,10 +19,10 @@
         <p class="text-lg font-bold text-center">Portfolio</p>
         <ul class="flex flex-col items-center">
           <li>
-            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block" href="">Mensions lègales</a>
+            <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center" href="">Mensions lègales</a>
           </li>
           <li>
-            <router-link :to="{ name: 'home', hash: '#contact_form'}" class="hover:underline underline-offset-1 py-[1px] px-8 inline-block">Contact</router-link>
+            <router-link :to="{ name: 'home', hash: '#contact_form'}" class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center">Contact</router-link>
           </li>
         </ul>
       </div>

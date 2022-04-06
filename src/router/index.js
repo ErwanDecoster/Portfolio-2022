@@ -30,7 +30,7 @@ const routes = [
     component: Realisations,
     meta: {
       title: 'Realisations',
-      transition: 'slide-left',
+      // transition: 'slide-right',
     },
     // beforeEnter: removeHash,
   },
