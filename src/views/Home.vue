@@ -32,13 +32,13 @@
           </li>
         </ul>
         <div class="flex flex-col gap-6">
-          <h1 class="text-7xl font-semibold text-left flex flex-col gap-4">
+          <h1 class="text-5xl md:text-7xl font-semibold text-left flex flex-col gap-4">
             <span>Decoster</span>
             <span>Erwan</span>
           </h1>
           <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
         </div>
-        <svg width="202" height="201" viewBox="0 0 202 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="hidden sm:block" width="202" height="201" viewBox="0 0 202 201" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_102_73)">
             <path d="M109.619 52.0671C114.653 46.7624 123.542 48.8964 125.619 55.9083L148.097 131.793C150.174 138.805 143.881 145.435 136.77 143.728L59.8134 125.253C52.7024 123.545 50.1061 114.78 55.1401 109.476L109.619 52.0671Z" stroke="#275DE7" stroke-width="5" shape-rendering="geometricPrecision"/>
           </g>
@@ -55,7 +55,7 @@
             </filter>
           </defs>
         </svg>
-        <svg width="241" height="245" viewBox="0 0 241 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="hidden sm:block" width="241" height="245" viewBox="0 0 241 245" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_102_74)">
             <path d="M94.5434 51.9336L185.147 133.513C190.582 138.407 188.681 147.348 181.726 149.608L65.7739 187.283C58.8188 189.543 52.0254 183.427 53.5459 176.273L78.8943 57.0183C80.4148 49.865 89.1087 47.0402 94.5434 51.9336Z" stroke="#275DE7" stroke-width="5" shape-rendering="geometricPrecision"/>
           </g>
@@ -80,7 +80,8 @@
         <div class="grid md:grid-cols-2">
           <img src="" alt="">
           <div class="grid gap-12 py-16">
-            <p class="text-xl text-left text-gray-500 ">Grand pationné d’informatique depuis tout petit, aujourdhuit en BTS SIO option Slam (Solutions logicielles et applications métiers)</p>
+            <!-- <p class="text-xl text-left text-gray-500 ">Grand pationné d’informatique depuis tout petit, aujourdhuit en BTS SIO option Slam (Solutions logicielles et applications métiers)</p> -->
+            <p class="text-xl text-left text-gray-500 ">Etudiant en developement dans le secteur de Lyon, grand passioné de nouvelles technologie et de design. Je realise pour vous votre site web.</p>
             <ul class="flex justify-around">
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">10+</p>
@@ -91,7 +92,7 @@
                 <p class="text-gray-400 w-32 text-center">stages entreprise</p>
               </li>
               <li class="grid gap-2">
-                <p class="font-bold text-3xl text-center">2+</p>
+                <p class="font-bold text-3xl text-center">4+</p>
                 <p class="text-gray-400 w-32 text-center">clients satisfait</p>
               </li>
             </ul>
@@ -261,7 +262,6 @@ export default {
     },
     // DrawPoints(points, colour) {
     //   points.forEach((point) => {
-    //     console.log(point);
     //     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     //     circle.setAttributeNS(null, 'cx', point[0]);
     //     circle.setAttributeNS(null, 'cy', point[1]);

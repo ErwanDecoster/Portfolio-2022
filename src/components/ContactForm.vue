@@ -74,7 +74,6 @@ export default {
   },
   methods: {
     checkForm() {
-      // console.log('in checkForm');
       if (this.name && this.email && this.validEmail(this.email) && this.object && this.message && !(this.message.length <= 20) && !this.messageSend) {
         this.errors = [];
         return true;
@@ -113,7 +112,6 @@ export default {
       this.sendEmail();
     },
     sendEmail() {
-      // console.log('in sendemail');
       smtp.send({
         Host: 'smtp.gmail.com',
         Username: 'wanerd2@gmail.com',
@@ -130,11 +128,8 @@ export default {
       );
     },
     verifEmailSending(message) {
-      // console.log('in verifEmailSending');
-      console.log(message);
       if (message === 'OK') {
         this.messageSend = true;
-        // console.log('is send');
         localStorage.name = '';
         localStorage.email = '';
         localStorage.tel = '';
@@ -149,7 +144,6 @@ export default {
         setTimeout(() => {
           this.messageSend = false;
           this.errors = [];
-          // console.log(this.messageSend);
         }, 10000);
       } else {
         this.errors.push('Une erreur durant l\'envoi est survenue, réessayée !');

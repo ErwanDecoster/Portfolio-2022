@@ -8,12 +8,6 @@ import Parcourt from '../views/parcourts/Parcourt.vue';
 import Contact from '../views/Contact.vue';
 import ErrorPage from '../views/ErrorPage.vue';
 
-function removeHash(to) {
-  console.log(to);
-  // console.log(getRoutes());
-  // if (to.hash) return { path: to.path, query: to.query, hash: '' };
-  // return false;
-}
 const routes = [
   {
     path: '/',
@@ -77,9 +71,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  // scrollBehavior(to, from, savedPosition) {
   scrollBehavior(to) {
-    // console.log(to, from, savedPosition);
     if (to.hash) {
       return {
         el: to.hash,
@@ -96,9 +88,6 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-router.beforeEach((to) => {
-  removeHash(to);
-});
 
 router.afterEach((to) => {
   if (to.params.name) {
@@ -109,10 +98,6 @@ router.afterEach((to) => {
     document.title = 'Erwan Decoster';
   }
   /* eslint no-param-reassign: "error" */
-  // const toDepth = to.path.split('/').length;
-  // const fromDepth = from.path.split('/').length;
-  // to.meta.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
-  // console.log(to.meta.transitionName);
 });
 
 export default router;

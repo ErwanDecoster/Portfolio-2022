@@ -97,11 +97,8 @@ export default {
   methods: {
     Parcourt() {
       const parcourts = this.$store.state.parcourt;
-      console.log(parcourts);
       parcourts.forEach((parcourt) => {
         if (parcourt.path === this.$route.params.name) {
-          console.log(parcourt);
-          // console.log(parcourt.company.name);
           this.parcourt = parcourt;
         }
       });

@@ -168,7 +168,6 @@ export default {
   },
   data() {
     return {
-      // realisation: this.Realisation(),
       realisation: '',
       maquetteImgModal: false,
       mpdImgModal: false,
@@ -179,10 +178,8 @@ export default {
   methods: {
     Realisation() {
       const realisations = this.$store.state.realisation;
-      // console.log(realisations);
       realisations.forEach((realisation) => {
         if (realisation.pathName === this.$route.params.name) {
-          // console.log(realisation);
           this.realisation = realisation;
         }
       });
