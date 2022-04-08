@@ -1,60 +1,60 @@
 <template>
   <section class="py-16">
-      <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
-        <h2 class="text-3xl font-bold text-center mx-auto">Contact</h2>
-        <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid md:flex gap-8 bg-white">
-          <div class="w-max flex flex-col gap-4 lg:gap-12">
-            <div class="flex gap-4">
-              <img class="w-10 h-10" src="@/assets/icon-telephone.svg" alt="">
-              <div>
-                <p class="text-lg font-bold">Tel :</p>
-                <a class="text-blue-600" href="tel:+33625306813">06 25 30 68 13</a>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <img class="w-10 h-10" src="@/assets/icon-email.svg" alt="">
-              <div>
-                <p class="text-lg font-bold">Email :</p>
-                <a class="text-blue-600 " href="mailto:erwan.decoster.pro@gmail.com">erwan.decoster.pro@gmail.com</a>
-              </div>
+    <div class="max-w-screen-lg mx-auto px-3 grid gap-12">
+      <h2 class="text-3xl font-bold text-center mx-auto">Contact</h2>
+      <div class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-6 xs:p-12 grid md:flex gap-8 bg-white">
+        <div class="w-max flex flex-col gap-4 lg:gap-12">
+          <div class="flex gap-4">
+            <img class="w-10 h-10" src="@/assets/icon-telephone.svg" alt="">
+            <div>
+              <p class="text-lg font-bold">Tel :</p>
+              <a class="text-blue-600" href="tel:+33625306813">06 25 30 68 13</a>
             </div>
           </div>
-          <form @submit.prevent="submit" class="grid md:grid-cols-2 gap-4 grow" novalidate="true">
-            <div class="md:col-span-2 grid gap-2">
-              <div v-show="errors.length">
-                <ul class="grid gap-2">
-                  <li v-for="error in errors" v-bind:key="error" @click="errors.splice(errors.indexOf(error), 1)" class="bg-red-200 px-2 py-1 rounded duration-200">{{ error }}</li>
-                </ul>
-              </div>
-              <div v-if="messageSend">
-                <p class="bg-green-200 px-2 py-1 rounded duration-200" @click="messageSend = false">Message envoyé avec succès</p>
-              </div>
+          <div class="flex gap-4">
+            <img class="w-10 h-10" src="@/assets/icon-email.svg" alt="">
+            <div>
+              <p class="text-lg font-bold">Email :</p>
+              <a class="text-blue-600 " href="mailto:erwan.decoster.pro@gmail.com">erwan.decoster.pro@gmail.com</a>
             </div>
-            <div class="grid gap-2">
-              <label for="name">Nom :</label>
-              <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="name" name="name" autocomplete="name" v-model="name">
-            </div>
-            <div class="grid gap-2">
-              <label for="email">Email :</label>
-              <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="email" name="email" autocomplete="email" v-model="email">
-            </div>
-            <div class="grid gap-2">
-              <label class="relative" for="tel">Tel : <span class="text-xs absolute pl-1 -top-1">optionnel</span></label>
-              <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="tel" name="tel" autocomplete="tel" v-model="tel">
-            </div>
-            <div class="grid gap-2">
-              <label for="objet">Objet :</label>
-              <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="objet" name="objet" autocomplete="off" v-model="object">
-            </div>
-            <div class="grid md:col-span-2 ">
-              <label for="message">Message :</label>
-              <textarea class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600 h-32 min-h-[8em]" name="message" id="message" v-model="message"></textarea>
-            </div>
-            <input type="submit" value="Envoyer" class="md:col-span-2 ml-auto cursor-pointer px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">
-          </form>
+          </div>
         </div>
+        <form @submit.prevent="submit" class="grid md:grid-cols-2 gap-4 grow" novalidate="true">
+          <div class="md:col-span-2 grid gap-2">
+            <div v-show="errors.length">
+              <ul class="grid gap-2">
+                <li v-for="error in errors" v-bind:key="error" @click="errors.splice(errors.indexOf(error), 1)" class="bg-red-200 px-2 py-1 rounded duration-200">{{ error }}</li>
+              </ul>
+            </div>
+            <div v-if="messageSend">
+              <p class="bg-green-200 px-2 py-1 rounded duration-200" @click="messageSend = false">Message envoyé avec succès</p>
+            </div>
+          </div>
+          <div class="grid gap-2">
+            <label for="name">Nom :</label>
+            <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="name" name="name" autocomplete="name" v-model="name">
+          </div>
+          <div class="grid gap-2">
+            <label for="email">Email :</label>
+            <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="email" name="email" autocomplete="email" v-model="email">
+          </div>
+          <div class="grid gap-2">
+            <label class="relative" for="tel">Tel : <span class="text-xs absolute pl-1 -top-1">optionnel</span></label>
+            <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="tel" name="tel" autocomplete="tel" v-model="tel">
+          </div>
+          <div class="grid gap-2">
+            <label for="objet">Objet :</label>
+            <input class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600" type="text" id="objet" name="objet" autocomplete="off" v-model="object">
+          </div>
+          <div class="grid md:col-span-2 ">
+            <label for="message">Message :</label>
+            <textarea class="px-2 py-1 border-2 rounded-lg border-blue-600 transition duration-200 outline outline-transparent outline-offset-1 outline-2 focus:outline-blue-600 h-32 min-h-[8em]" name="message" id="message" v-model="message"></textarea>
+          </div>
+          <input type="submit" value="Envoyer" class="md:col-span-2 ml-auto cursor-pointer px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <script>

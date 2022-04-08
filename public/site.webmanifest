@@ -2,7 +2,7 @@
     "name": "Portfolio Decoster Erwan",
     "short_name": "Decoster Erwan",
     "description": "Portfolio Erwan Decoster - Développeur Web",
-    "start_url ": "http://erwan-decoster.com",
+    "start_url ": ".",
     "icons": [
         {
             "src": "/img/icons/android-chrome-192x192.png",

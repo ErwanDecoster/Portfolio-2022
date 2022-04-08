@@ -85,15 +85,15 @@
             <ul class="flex justify-around">
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">10+</p>
-                <p class="text-gray-400 w-32 text-center">projets completé</p>
+                <p class="text-gray-400 sm:w-32 text-center">projets completé</p>
               </li>
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">6+</p>
-                <p class="text-gray-400 w-32 text-center">stages entreprise</p>
+                <p class="text-gray-400 sm:w-32 text-center">stages entreprise</p>
               </li>
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">4+</p>
-                <p class="text-gray-400 w-32 text-center">clients satisfait</p>
+                <p class="text-gray-400 sm:w-32 text-center">clients satisfait</p>
               </li>
             </ul>
             <div class="flex gap-4">

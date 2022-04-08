@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Realisations from '../views/realisations/Realisations.vue';
 import Realisation from '../views/realisations/Realisation.vue';
-
-// import Parcourts from '../views/parcourts/Parcourts.vue';
 import Parcourt from '../views/parcourts/Parcourt.vue';
 import Contact from '../views/Contact.vue';
 import ErrorPage from '../views/ErrorPage.vue';
