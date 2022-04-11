@@ -51,11 +51,11 @@
             <h3 class="font-bold text-xl mb-2">Description</h3>
             <p v-html="this.parcourt.companyDesc" class=""></p>
           </div>
-          <div>
+          <div v-if="this.parcourt.companyLocation || this.parcourt.localisationMapsLink || this.parcourt.companyLocation">
             <h3 class="font-bold text-lg mb-2">Localisation</h3>
             <p class="">{{ this.parcourt.companyLocation }}</p>
             <div class="grid grid-cols-2 gap-12">
-              <img class="bg-indigo-600 aspect-video rounded-lg" src="" alt="">
+              <img v-if="this.parcourt.localisationImgLink" class="aspect-video rounded-lg" src="" alt="">
               <iframe class="w-full aspect-video rounded-lg" :src="this.parcourt.localisationMapsLink" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
@@ -63,13 +63,17 @@
         <div v-if="this.parcourt.missions" class="shadow-[0_5px_25px_-3px_rgba(0,0,0,0.1)] rounded-xl p-12 grid gap-8 bg-white">
           <h2 class="font-bold text-3xl">Le stage</h2>
           <div>
-            <h3 class="font-bold text-xl mb-2">Les missions</h3>
-            <div v-for="mission in this.parcourt.missions" :key="mission">
-              <h4 class="font-bold text-lg mb-1">{{ mission.name }}</h4>
-              <p>{{ mission.desc }}</p>
-              <div class="flex gap-4 items-center">
-                <p class="font-bold">En voir plus :</p>
-                <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-blue-600/25 transition duration-200 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
+            <h3 class="font-bold text-2xl mb-4">Les missions</h3>
+            <div class="grid gap-6">
+              <div v-for="mission in this.parcourt.missions" :key="mission">
+                <div class="grid pl-4">
+                  <h4 class="font-bold text-lg mb-1">{{ mission.name }}</h4>
+                  <p>{{ mission.desc }}</p>
+                  <div v-if="mission.assosiedProjetPath" class="flex gap-4 items-center">
+                    <p class="font-bold">En voir plus :</p>
+                    <router-link :to="{ name: 'realisation', params: { name: mission.assosiedProjetPath }}" class="px-3 py-1 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Page concerné</router-link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -96,7 +100,8 @@ export default {
   },
   methods: {
     Parcourt() {
-      const parcourts = this.$store.state.parcourt;
+      const parcourts = this.$store.state.parcourtProfesionnel;
+      console.log(parcourts);
       parcourts.forEach((parcourt) => {
         if (parcourt.path === this.$route.params.name) {
           this.parcourt = parcourt;

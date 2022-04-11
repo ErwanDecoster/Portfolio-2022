@@ -180,15 +180,13 @@ export default createStore({
           },
         ],
         shortDesc: 'Creation d’un dashboard avec coté clients et admins',
-        website: 'http://www.phoenix-vetements.com/',
-        // github: '',
-        // objectif: 'Refonte complete du site de l\'entreprise Phoenix Vêtements et Protection, creation d\'une maquette..',
-        githubLinks: [
-          {
-            linkName: 'Github',
-            link: 'https://github.com/ErwanDecoster/Covoit',
-          },
-        ],
+        // website: 'http://www.phoenix-vetements.com/',
+        // githubLinks: [
+        //   {
+        //     linkName: 'Github',
+        //     link: 'https://github.com/ErwanDecoster/Covoit',
+        //   },
+        // ],
         img: 'watercollect_dashboard',
         // projectPartenaire: [
         //   {
@@ -196,24 +194,36 @@ export default createStore({
         //     link: '',
         //   },
         // ],
-        // projectOrigine: 'L\'emtreprise phoenix phetement et protection grandi et son site internet actuel demande d\'etre mintenue a jour, sont style graphique maintenent depassé et l\'entreprise na pas le temps de s\'en occupé',
-        // projectObjectif: 'Mettre en place un nouveau site internet dans l\'air du temps et simple d\'utilisation pour l\'emtreprise Phoenix Vetement et Protection.',
-        // projectDescription: 'Le nouveau site internet sera un site vitrine mettant en avant ce que fait l\'emtreprise et permetant de au client de joindre facilement Phoenix Vetement et Protection.',
-        // foncionalites: [
-        //   {
-        //     for: 'Conducteur',
-        //     foncionalitesFor: [
-        //       { name: 'Créer un voyage avec un point de départ et d’arrivée ainsi que l’heure de départ.' },
-        //       { name: 'Modifier ces informations personnelles: nom, prénom, téléphone, mot de passe.' },
-        //       { name: 'Visualiser les personnes acceptées dans son trajet, où est-ce qu’il doit le récupérer, les étapes intermédiaire' },
-        //       { name: 'Accepter ou refuser un utilisateur qui veut rejoindre son trajet.' },
-        //       { name: 'Choix du véhicule pour le voyage, ainsi que de la motorisation.' },
-        //     ],
-        //   },
-        // ],
+        projectOrigine: 'L\'entreprise WaterCollect avec pour objectif de fournir à ses clients la possibilité de visualiser leurs données un ainsi créée davantage engagement de leur part.',
+        projectObjectif: 'Créé pour les futures clientes une plate-forme de visualisation de leur économie réalisée ainsi que le nombre d\'équipements installer et les équipements non installés ainsi que de recommandation',
+        projectDescription: 'Le Dashboard doit comporter une partie Admin et une partie Client, les clients pourront visualiser leur donnée comme leurs consommations d\'eau, les économies d\'eau le nombre d\'équipements installer... et les administrateurs pourront modifier les données des clients et en ajouter des nouveaux.',
+        foncionalites: [
+          {
+            for: 'Client',
+            foncionalitesFor: [
+              { name: 'Voir les équipements déjà installé.' },
+              { name: 'Voir les recommandations en matière de nouvel équipement.' },
+              { name: 'Voir des statistiques sur un graphe pour l\'eau consommée sur l\'année.' },
+              { name: 'Voir des statistiques sur un graphe pour l\'eau économisé sur l\'année.' },
+              { name: 'Voir la réduction des émissions de carbone grâce à l\'installation WaterCollect.' },
+            ],
+          },
+          {
+            for: 'Administrateur',
+            foncionalitesFor: [
+              { name: 'Voir la liste des clients.' },
+              { name: 'Pouvoir ajouter de nouveaux clients.' },
+              { name: 'Déterminer une couleur pour chaque  client qui adaptera la couleur des graphiques en fonction.' },
+              { name: 'Possibilité de changer le mot de passe client.' },
+              { name: 'Pouvoir ajouter par mois l\'eau consommée par le client.' },
+              { name: 'Pouvoir ajouter par mois l\'eau économisée par le client.' },
+              { name: 'Pouvoir ajouter un type d\'équipement et leur nombre.' },
+            ],
+          },
+        ],
         maquetteImg: 'watercollect_dashboard_figma',
-        maquetteWebsite: '',
-        maquetteLink: '',
+        maquetteWebsite: 'Figma',
+        maquetteLink: 'https://www.figma.com/file/dwJfKIKWVihe0Hv3c4k5FX/WaterCollect-Dashboard',
         // mcdImg: '',
         // mcdLink: '',
         // mldImg: '',
@@ -249,12 +259,12 @@ export default createStore({
         website: 'http://www.phoenix-vetements.com/',
         // github: '',
         // objectif: 'Refonte complete du site de l\'entreprise Phoenix Vêtements et Protection, creation d\'une maquette..',
-        githubLinks: [
-          {
-            linkName: 'Github',
-            link: 'https://github.com/ErwanDecoster/Covoit',
-          },
-        ],
+        // githubLinks: [
+        //   {
+        //     linkName: 'Github',
+        //     link: 'https://github.com/ErwanDecoster/Covoit',
+        //   },
+        // ],
         img: 'watercollect_simulateur',
         // projectPartenaire: [
         //   {
@@ -262,24 +272,33 @@ export default createStore({
         //     link: '',
         //   },
         // ],
-        // projectOrigine: 'L\'emtreprise phoenix phetement et protection grandi et son site internet actuel demande d\'etre mintenue a jour, sont style graphique maintenent depassé et l\'entreprise na pas le temps de s\'en occupé',
-        // projectObjectif: 'Mettre en place un nouveau site internet dans l\'air du temps et simple d\'utilisation pour l\'emtreprise Phoenix Vetement et Protection.',
-        // projectDescription: 'Le nouveau site internet sera un site vitrine mettant en avant ce que fait l\'emtreprise et permetant de au client de joindre facilement Phoenix Vetement et Protection.',
-        // foncionalites: [
-        //   {
-        //     for: 'Conducteur',
-        //     foncionalitesFor: [
-        //       { name: 'Créer un voyage avec un point de départ et d’arrivée ainsi que l’heure de départ.' },
-        //       { name: 'Modifier ces informations personnelles: nom, prénom, téléphone, mot de passe.' },
-        //       { name: 'Visualiser les personnes acceptées dans son trajet, où est-ce qu’il doit le récupérer, les étapes intermédiaire' },
-        //       { name: 'Accepter ou refuser un utilisateur qui veut rejoindre son trajet.' },
-        //       { name: 'Choix du véhicule pour le voyage, ainsi que de la motorisation.' },
-        //     ],
-        //   },
-        // ],
+        projectOrigine: 'L\'emtreprise WaterCollect voulant augmenter sont engagelent avec ses future client voulais leurs permetre sur le site de pouvoir visualiter les economie possible grace a leurs equipements.',
+        projectObjectif: 'Mettre en place sur le site Wordpress un simulateur d\'économie d\'eau realisable grace à l\'installation des équipements WaterCollect.',
+        projectDescription: 'Le simulateur doit permettre au client de visualiser combien de mètre cube d\'eau sont économisable par mois et par an le tout très facilement grâce à des Sliders pour définir certains paramètres.',
+        foncionalites: [
+          {
+            for: 'Clients du site principal',
+            foncionalitesFor: [
+              { name: 'Définir le nombre de personnes dans le foyer.' },
+              { name: 'Définir le prix de l\'eau au mettre cube' },
+              { name: 'Définir s\'il y une machine à laver aux non dans le foyer.' },
+              { name: 'Voir les économies par mois ou par année pour l\'eau consommée, l\'eau préservée et la somme d\'argent économisées' },
+            ],
+          },
+          {
+            for: 'Client de la campagne pour les campings ',
+            foncionalitesFor: [
+              { name: 'Définir le nombre de logements du camping' },
+              { name: 'Définir le nombre de personnes par logements' },
+              { name: 'Définir le nombre dé d\'exploitation des logements' },
+              { name: 'Définir le prix de l\'eau au mettre cube.' },
+              { name: 'Voir la deference avec et sans les équipements WaterCollect pour les nombres de litres : par jour, par séjour, par saison pour un logement et par saison pour le nombre de logements du camping.' },
+            ],
+          },
+        ],
         maquetteImg: 'watercollect_simulateur_figma',
         maquetteWebsite: 'Figma',
-        maquetteLink: '',
+        maquetteLink: 'https://www.figma.com/file/obmVmdaFsRdahAhuJwnAo4/WaterCollect-Simulateur',
         // mcdImg: '',
         // mcdLink: '',
         // mldImg: '',
@@ -302,9 +321,14 @@ export default createStore({
         missions:
         [
           {
-            name: 'Creation du site vitrine.',
-            desc: 'Le site de l\'emtreprise se faisent viesant une refonte complete fut realisé',
+            name: 'Creation du site vitrine de l\'entreprise.',
+            desc: 'Le site de l\'entreprise ce faisant vieillissant et obsolète par son style graphique et sa conception même une refonte complète fut réalisé afin de convenir plus à ce que Phoenix vêtement et devenue aujourd\'hui et aux attentes des clients.',
             assosiedProjetPath: 'phoenix_vetements_et_protection_site_internet',
+          },
+          {
+            name: 'Creation des sigiature de mail.',
+            desc: 'L\'entreprise grandissant de plus en plus son image et son identité prennent de l\'importance et une uniformisation des signatures devenez de plus en plus nécessaire.',
+            assosiedProjetPath: '',
           },
         ],
         path: 'phoenix_vetements_et_protection',
@@ -322,14 +346,14 @@ export default createStore({
         companyDesc: 'C\'est à Toulon que Thomas et Hendrix, alors étudiants en école d’ingénieurs, ont commencé à s’intéresser aux enjeux de préservation des ressources en eau.<br><br>« Nous pensons que le recyclage de l’eau est un enjeu clé du développement durable.<br><br>En effet, chaque jour de l’eau potable est gaspillée dans nos toilettes et c’est pour nous une aberration. »<br<br>>Pour y remédier ils ont fondé WaterCollect qui développe des solutions de recyclage des eaux grises domestiques.',
         localisationImgLink: '',
         localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d536.4025433531451!2d4.871044997678743!3d45.78097000568698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd84a368148122bb8!2sWaterCollect!5e0!3m2!1sen!2sfr!4v1648502365468!5m2!1sen!2sfr',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        // missions:
+        // [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'watercollect',
         role: 'Stagiaire',
         shortDesc: 'Création et intégration sur le site WordPresse de plusieurs simulateurs en HTML et JS et création d’un dashboard avec un côté administrateur et client accessible depuis un sous domaine du site.',
@@ -344,15 +368,14 @@ export default createStore({
         placementAdress: '',
         companyDesc: '',
         localisationImgLink: '',
-        localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2812.6918534431693!2d4.811151815547732!3d45.17308947909867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f540588d2d1fef%3A0xb18f4d1440666447!2sMcDonald&#39;s!5e0!3m2!1sen!2sfr!4v1649702021776!5m2!1sen!2sfr',
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'mcdonalds',
         role: 'Equipier polyvalent',
         shortDesc: 'Emploi étudiant.',
@@ -361,21 +384,20 @@ export default createStore({
       },
       {
         id: 3,
-        companyName: 'Eco Domino',
+        companyName: 'Eco Domino - Coworking des Canuts',
         placementCity: 'Lyon',
         placementZipCode: '',
         placementAdress: '',
         companyDesc: '',
         localisationImgLink: '',
-        localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22265.416954966484!2d4.823974369601114!3d45.767640512749026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4eb1482d8e447%3A0x48ca2a4a155f6b4b!2sCoworking%20des%20Canuts!5e0!3m2!1sen!2sfr!4v1649701243016!5m2!1sen!2sfr',
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'eco_domino',
         role: 'Stagiaire',
         shortDesc: 'Création et utilisation d’un serveur domotique sur un raspberry utilisation de docker et Node Red pour créer des scénarios et lier les appareils de différentes marques.',
@@ -390,15 +412,14 @@ export default createStore({
         placementAdress: '',
         companyDesc: '',
         localisationImgLink: '',
-        localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6735.5644003325415!2d4.890642886159351!3d45.19556182670142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x551e96eb9c65c324!2sBBI!5e0!3m2!1sen!2sfr!4v1649700678603!5m2!1sen!2sfr',
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'bbi_informatique',
         role: 'Stagiaire',
         shortDesc: 'Utilisation de Linux, dépannage, réparation de matériel informatique, communication avec la clientèle afin de comprendre leur demande.',
@@ -413,15 +434,14 @@ export default createStore({
         placementAdress: '',
         companyDesc: '',
         localisationImgLink: '',
-        localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.5219961731264!2d4.408199415491157!3d43.449698279128825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b661c502624bb1%3A0xa53ab224f047f165!2sFarniente%20Plage!5e0!3m2!1sen!2sfr!4v1649701357504!5m2!1sen!2sfr',
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'farniente_plage',
         role: 'Serveur en restauration',
         shortDesc: 'Service, relationnel avec clients, gestion de la salle.',
@@ -436,15 +456,14 @@ export default createStore({
         placementAdress: '',
         companyDesc: '',
         localisationImgLink: '',
-        localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44946.20824701309!2d4.790156104277327!3d45.24500181477788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f515f54d3510ef%3A0xd253ef4c199af64c!2sMairie!5e0!3m2!1sen!2sfr!4v1649701418871!5m2!1sen!2sfr',
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'marie_de_saint_desirat',
         role: 'Stagiaire',
         shortDesc: 'Mise à jour du site internet, correction de bug, amélioration et optimisation de la barre de navigation et ajout d\'éléments.',
@@ -460,14 +479,13 @@ export default createStore({
         companyDesc: '',
         localisationImgLink: '',
         localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'societe_dromoise_de_travaux_sdt',
         role: 'Stagiaire',
         shortDesc: 'Observation de l\'installation de réseaux fibre et ADSL, branchement de jartier dans les centraux Téléphoniques et compréhension de l\'infrastructure réseau d’une ville.',
@@ -480,17 +498,16 @@ export default createStore({
         placementCity: 'Vienne',
         placementZipCode: '',
         placementAdress: '',
-        companyDesc: '',
+        companyDesc: 'Imagine Développement est une société implantée à Vienne (Isère) depuis 2006. Experte dans les domaines de l\'informatique et du web, elle s\'est spécialisée dans : Le développement de logiciels spécifiques métier, La conception de sites internet sur mesure, L’accompagnement autour des stratégies webmarketing',
         localisationImgLink: '',
-        localisationMapsLink: '',
-        missions:
-        [
-          {
-            name: '',
-            desc: '',
-            assosiedProjetPath: '',
-          },
-        ],
+        localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.6223301778077!2d4.865332115559904!3d45.537805079101986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4de4e5c065b5f%3A0x9a0890a07ec004f8!2sImagine%20D%C3%A9veloppement!5e0!3m2!1sen!2sfr!4v1649701594353!5m2!1sen!2sfr',
+        // missions: [
+        //   {
+        //     name: '',
+        //     desc: '',
+        //     assosiedProjetPath: '',
+        //   },
+        // ],
         path: 'imagine_developpement',
         role: 'Stagiaire',
         shortDesc: 'Création de serveurs Windows et Linux via une machine virtuelle, essai de mise en place de GPO (stratégie de Groupe),  Création de domaines sur serveur, installation de logiciels, Préparation de commandes des clients.',

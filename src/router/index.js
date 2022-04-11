@@ -4,6 +4,7 @@ import Realisations from '../views/realisations/Realisations.vue';
 import Realisation from '../views/realisations/Realisation.vue';
 import Parcourt from '../views/parcourts/Parcourt.vue';
 import Contact from '../views/Contact.vue';
+import LegalNotice from '../views/LegalNotice.vue';
 import ErrorPage from '../views/ErrorPage.vue';
 
 const routes = [
@@ -55,6 +56,15 @@ const routes = [
     component: Contact,
     meta: {
       title: 'Contact',
+      transition: 'slide-left',
+    },
+  },
+  {
+    path: '/Mensions_Legal',
+    name: 'Mensions Legal',
+    component: LegalNotice,
+    meta: {
+      title: 'Mensions Legal',
       transition: 'slide-left',
     },
   },

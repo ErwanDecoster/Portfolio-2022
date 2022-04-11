@@ -39,8 +39,5 @@ export default {
       return (yiq >= 128) ? '000' : 'fff';
     },
   },
-  mounted() {
-    console.log(this.ContrastedColor('#000'));
-  },
 };
 </script>
