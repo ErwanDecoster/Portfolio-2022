@@ -19,7 +19,7 @@
         </ul>
       </nav>
     </div>
-    <button @click="openFullNav = !openFullNav" class="sm:hidden group h-8 w-8 absolute right-6 top-6 flex flex-col gap-2">
+    <button @click="openFullNav = !openFullNav" aria-label="Voir le menu" class="sm:hidden group h-8 w-8 absolute right-6 top-6 flex flex-col gap-2">
       <span class="w-full bg-black h-1 block rounded-full"></span>
       <span class="group-hover:w-1/3 w-full duration-150 bg-black h-1 block rounded-full"></span>
       <span class="w-full bg-black h-1 block rounded-full"></span>

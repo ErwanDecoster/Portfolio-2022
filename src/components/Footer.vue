@@ -18,9 +18,9 @@
       <div class="flex flex-col w-64 gap-2">
         <p class="text-lg font-bold text-center">Portfolio</p>
         <ul class="flex flex-col items-center">
-          <li>
+          <!-- <li>
             <a class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center" href="">Mensions lègales</a>
-          </li>
+          </li> -->
           <li>
             <router-link :to="{ name: 'home', hash: '#contact_form'}" class="hover:underline underline-offset-1 py-[1px] px-8 inline-block text-center">Contact</router-link>
           </li>
