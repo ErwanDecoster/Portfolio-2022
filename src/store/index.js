@@ -53,18 +53,18 @@ export default createStore({
             link: 'https://boudra-tristan.fr/',
           },
         ],
-        projectOrigine: 'Après avoir réfléchi sur ce que l’on voulait faire, nous avons opté de partir sur la création d’une application déjà existante qui est Blablacar. Notre application a pour but d’être gratuite pour tous les utilisateurs. Ceci a pour effet de toucher une plus grande partie de la population en optant pour ce modèle économique.',
-        projectObjectif: 'Créer une application ayant une excellente accessibilité pour toutes les tranches d’âge de la population. Créer des fonctionnalités et une interface ergonomique. Avoir une application simple d’utilisation.',
-        projectDescription: 'Il s’agit d’un projet consistant à réaliser une web app de covoiturage adapté au mobile et au PC; le but: définir un point de départ et d\'arrivée et choisir les autres utilisateurs que l’on veut prendre sur notre passage ou inversement et trouver un conducteur pour aller la on l’on souhaite.',
+        projectOrigine: 'Après avoir réfléchi sur ce que l’on voulait faire, nous avons opté pour la création d’une application se basant sur un modèle déjà existant qui est Blablacar. Notre application a l\'avantage d’être gratuite pour l\'ensemble des utilisateurs. Le but est de toucher une plus grande partie de la population en proposant un outil gratuit donc économique.',
+        projectObjectif: 'Créer une application ayant une excellente accessibilité pour toutes les tranches d’âge de la population. Créer des fonctionnalités et une interface ergonomique. Avoir une application simple d’utilisation et gratuite.',
+        projectDescription: 'Il s’agit d’un projet consistant à réaliser une Web App de covoiturage adapté au mobile et au PC. Le but: définir un point de départ et d\'arrivée et choisir les autres utilisateurs que l’on veut prendre sur notre passage ou inversement et trouver un conducteur pour aller la on l’on souhaite.',
         foncionalites: [
           {
             for: 'Conducteur',
             foncionalitesFor: [
               { name: 'Créer un voyage avec un point de départ et d’arrivée ainsi que l’heure de départ.' },
-              { name: 'Modifier ces informations personnelles: nom, prénom, téléphone, mot de passe.' },
-              { name: 'Visualiser les personnes acceptées dans son trajet, où est-ce qu’il doit le récupérer, les étapes intermédiaire' },
+              { name: 'Modifier ses informations personnelles: nom, prénom, téléphone, mot de passe.' },
+              { name: 'Visualiser les personnes acceptées dans son trajet, l\'endroit ou il doit le récupérer, les étapes intermédiaires.' },
               { name: 'Accepter ou refuser un utilisateur qui veut rejoindre son trajet.' },
-              { name: 'Choix du véhicule pour le voyage, ainsi que de la motorisation.' },
+              { name: 'Choisir le véhicule pour le voyage, ainsi que de la motorisation.' },
             ],
           },
           {
@@ -72,9 +72,9 @@ export default createStore({
             foncionalitesFor: [
               { name: 'Rejoindre un voyage.' },
               { name: 'Voir l\'ensemble des voyages.' },
-              { name: 'Voir toutes ces informations relatives à son compte: nom, prénom, téléphone.' },
-              { name: 'Modifier ces informations personnelles: nom, prénom, téléphone, mot de passe.' },
-              { name: 'Il recherche un conducteur pour faire son trajet, indique le point de départ et d’arrivée ainsi que l’horaire à laquel il part, à ce moment les trajets qui ont le même point d\'arrivée lui sont proposés.' },
+              { name: 'Voir toutes ces informations relatives à son compte : nom, prénom, téléphone.' },
+              { name: 'Modifier ses informations personnelles : nom, prénom, téléphone, mot de passe.' },
+              { name: 'Rechercher un conducteur pour son trajet, indiquer le point de départ et d’arrivée ainsi que l’horaire à laquel il part, et pouvoir visualiser les trajets ayant le même point d\'arrivée.' },
               { name: 'Programmer un départ.' },
             ],
           },
@@ -94,7 +94,7 @@ export default createStore({
         id: 1,
         name: 'Phoenix Vêtements et Protection - Site internet',
         pathName: 'phoenix_vetements_et_protection_site_internet',
-        type: 'Projet prefesionnel',
+        type: 'Projet professionnel',
         techno: [
           {
             name: 'Vue.js',
@@ -126,9 +126,9 @@ export default createStore({
         //     link: '',
         //   },
         // ],
-        projectOrigine: 'L\'emtreprise phoenix phetement et protection grandi et son site internet actuel demande d\'etre mintenue a jour, sont style graphique maintenent depassé et l\'entreprise na pas le temps de s\'en occupé',
-        projectObjectif: 'Mettre en place un nouveau site internet dans l\'air du temps et simple d\'utilisation pour l\'emtreprise Phoenix Vetement et Protection.',
-        projectDescription: 'Le nouveau site internet sera un site vitrine mettant en avant ce que fait l\'emtreprise et permetant de au client de joindre facilement Phoenix Vetement et Protection.',
+        projectOrigine: 'L\'entreprise Phoenix vêtemenst et protection se developpe et son site internet actuel demande d\'etre maintenu à jour, son style graphique est depassé et l\'entreprise n\'a pas eu le temps de s\'en occuper.',
+        projectObjectif: 'Mettre en place un nouveau site internet dans l\'air du temps et simple d\'utilisation pour l\'entreprise Phoenix Vêtements et Protection.',
+        projectDescription: 'Le nouveau site internet deviendra un site vitrine mettant en avant ce que fait l\'emtreprise et permetant aux clients de joindre facilement Phoenix vêtements et protections via un formulaire de contact et differents liens de contact.',
         // foncionalites: [
         //   {
         //     for: 'Conducteur',
@@ -179,7 +179,7 @@ export default createStore({
             color: 'EBD41C',
           },
         ],
-        shortDesc: 'Creation d’un dashboard avec coté clients et admins',
+        shortDesc: 'Création d’un dashboard avec une parti clientes et administrateurs.',
         // website: 'http://www.phoenix-vetements.com/',
         // githubLinks: [
         //   {
@@ -194,9 +194,9 @@ export default createStore({
         //     link: '',
         //   },
         // ],
-        projectOrigine: 'L\'entreprise WaterCollect avec pour objectif de fournir à ses clients la possibilité de visualiser leurs données un ainsi créée davantage engagement de leur part.',
-        projectObjectif: 'Créé pour les futures clientes une plate-forme de visualisation de leur économie réalisée ainsi que le nombre d\'équipements installer et les équipements non installés ainsi que de recommandation',
-        projectDescription: 'Le Dashboard doit comporter une partie Admin et une partie Client, les clients pourront visualiser leur donnée comme leurs consommations d\'eau, les économies d\'eau le nombre d\'équipements installer... et les administrateurs pourront modifier les données des clients et en ajouter des nouveaux.',
+        projectOrigine: 'L\'entreprise WaterCollect a pour objectif de fournir à ses clients la possibilité de visualiser leurs données de consommation et d\'économie et ainsi créer davantage d\'engagement de leur part.',
+        projectObjectif: 'Créer pour les futures clients une plate-forme de visualisation de leurs économies réalisées ainsi que le nombre d\'équipements installés et les équipements non installés ainsi que des proposition pour d\'autres équipements.',
+        projectDescription: 'Le Dashboard doit comporter une partie Administrateurs et une partie Client, les clients pourront visualiser leurs données comme leurs consommations d\'eau, les économies d\'eau le nombre d\'équipements installés... et les administrateurs pourront modifier les données des clients et en ajouter des nouveaux.',
         foncionalites: [
           {
             for: 'Client',
@@ -204,7 +204,7 @@ export default createStore({
               { name: 'Voir les équipements déjà installé.' },
               { name: 'Voir les recommandations en matière de nouvel équipement.' },
               { name: 'Voir des statistiques sur un graphe pour l\'eau consommée sur l\'année.' },
-              { name: 'Voir des statistiques sur un graphe pour l\'eau économisé sur l\'année.' },
+              { name: 'Voir des statistiques sur un graphe pour l\'eau économisée sur l\'année.' },
               { name: 'Voir la réduction des émissions de carbone grâce à l\'installation WaterCollect.' },
             ],
           },
@@ -255,7 +255,7 @@ export default createStore({
             color: 'EBD41C',
           },
         ],
-        shortDesc: 'Ajout de diferents simulateur d’economie d’eau au site wordpresse existane ',
+        shortDesc: 'Ajout de diferents simulateurs d’économie d’eau au site Wordpresse existant.',
         website: 'http://www.phoenix-vetements.com/',
         // github: '',
         // objectif: 'Refonte complete du site de l\'entreprise Phoenix Vêtements et Protection, creation d\'une maquette..',
@@ -272,27 +272,27 @@ export default createStore({
         //     link: '',
         //   },
         // ],
-        projectOrigine: 'L\'emtreprise WaterCollect voulant augmenter sont engagelent avec ses future client voulais leurs permetre sur le site de pouvoir visualiter les economie possible grace a leurs equipements.',
-        projectObjectif: 'Mettre en place sur le site Wordpress un simulateur d\'économie d\'eau realisable grace à l\'installation des équipements WaterCollect.',
-        projectDescription: 'Le simulateur doit permettre au client de visualiser combien de mètre cube d\'eau sont économisable par mois et par an le tout très facilement grâce à des Sliders pour définir certains paramètres.',
+        projectOrigine: 'L\'emtreprise WaterCollect voulant augmenter son engagement avec ses futurs clients, souhaiter leur permettre sur le site de visualiter les économies possibles grâce à leurs équipements.',
+        projectObjectif: 'Mettre en place sur le site Wordpress un simulateur d\'économie d\'eau réalisable grâce à l\'installation des équipements WaterCollect.',
+        projectDescription: 'Le simulateur doit permettre au client de visualiser combien de mètres cube d\'eau sont économisables par mois et par an le tout très facilement grâce à des Sliders pour définir certains paramètres.',
         foncionalites: [
           {
             for: 'Clients du site principal',
             foncionalitesFor: [
               { name: 'Définir le nombre de personnes dans le foyer.' },
               { name: 'Définir le prix de l\'eau au mettre cube' },
-              { name: 'Définir s\'il y une machine à laver aux non dans le foyer.' },
-              { name: 'Voir les économies par mois ou par année pour l\'eau consommée, l\'eau préservée et la somme d\'argent économisées' },
+              { name: 'Définir s\'il y une machine à laver ou non dans le foyer.' },
+              { name: 'Voir les économies par mois ou par année pour l\'eau consommée, l\'eau préservée et la somme d\'argent économisée' },
             ],
           },
           {
             for: 'Client de la campagne pour les campings ',
             foncionalitesFor: [
               { name: 'Définir le nombre de logements du camping' },
-              { name: 'Définir le nombre de personnes par logements' },
-              { name: 'Définir le nombre dé d\'exploitation des logements' },
+              { name: 'Définir le nombre de personnes par logement' },
+              { name: 'Définir le nombre de mois d\'exploitation des logements' },
               { name: 'Définir le prix de l\'eau au mettre cube.' },
-              { name: 'Voir la deference avec et sans les équipements WaterCollect pour les nombres de litres : par jour, par séjour, par saison pour un logement et par saison pour le nombre de logements du camping.' },
+              { name: 'Voir la difference avec et sans les équipements WaterCollect pour le nombre de litres : par jour, par séjour, par saison pour un logement et par saison pour le nombre de logements du camping.' },
             ],
           },
         ],
@@ -306,6 +306,66 @@ export default createStore({
         // mpdImg: '',
         // mpdLink: '',
         // comment: '',
+      },
+      {
+        id: 0,
+        name: 'Covoit Admin',
+        pathName: 'covoit_dmain',
+        type: 'Projet d\'etude',
+        techno: [
+          {
+            name: 'C#',
+            color: '823184',
+          },
+          {
+            name: 'WPF',
+            color: '054A8A',
+          },
+          {
+            name: 'MYSQL',
+            color: 'F29112',
+          },
+        ],
+        shortDesc: 'Application lourd de gestion de la base de données Covoit.',
+        // website: '',
+        githubLinks: [
+          {
+            linkName: 'Github',
+            link: 'https://github.com/ErwanDecoster/CovoitAdmin',
+          },
+        ],
+        img: 'covoit_admin',
+        // projectPartenaire: [
+        //   {
+        //     name: 'Tristan',
+        //     link: 'https://boudra-tristan.fr/',
+        //   },
+        // ],
+        projectOrigine: 'Les utilisateurs du site Covoit pouvant éprouver des dificultés avec le site : mettre en place une plateforme de gestion de la base de données avait tout son sens.',
+        projectObjectif: 'Créer une application téléchargeable permetant la gestion de la base de données Covoit. Avec un accès uniquement pour les administrateurs.',
+        projectDescription: 'Il s’agit d’un projet consistant à réaliser une application en C# avec l’aide de WPF, permettant de changer toutes les informations de la base de données Covoit et permetant la mise en place d\'un support utilisateurs.',
+        foncionalites: [
+          {
+            for: 'Administrateur',
+            foncionalitesFor: [
+              { name: 'Ajouter, supprimer les motorisations.' },
+              { name: 'Réinitialiser les mots de passe.' },
+              { name: 'Modifier le nom, prénom, téléphone des utilisateurs' },
+              { name: 'Supprimer un compte.' },
+              { name: 'Lister les utilisateurs, informations personnelles, véhicules.' },
+            ],
+          },
+        ],
+        maquetteImg: 'covoit_admin_figma',
+        maquetteWebsite: 'Figma',
+        maquetteLink: 'https://www.figma.com/file/hV8tFOXZ5o6TAeCFUg5ca2/Untitled?node-id=0%3A1',
+        mcdImg: 'covoit_mcd',
+        mcdLink: 'https://drive.google.com/file/d/1tF2mflGTWQEn79w0y5RnNB1jbtQe2cXW/view?usp=sharing',
+        mldImg: 'covoit_mld',
+        mldLink: 'https://docs.google.com/document/d/1hxqgAQpgOgpevZock19mC7AOKI81wT8NL780hwVDcWA/edit?usp=sharing',
+        mpdImg: 'covoit_mpd',
+        mpdLink: 'https://github.com/Tristan-Boudra/CovoitBackEnd/blob/main/BDD_Covoit.sql',
+        comment: '',
       },
     ],
     parcourtProfesionnel: [
@@ -333,7 +393,7 @@ export default createStore({
         ],
         path: 'phoenix_vetements_et_protection',
         role: 'Stagiaire',
-        shortDesc: 'Refonte complète du site internet de l’entreprise, creation des signatures de mail...',
+        shortDesc: 'Refonte complète du site internet de l’entreprise, création des signatures de mail...',
         startDate: '01/01/2022',
         endDate: '02/01/2022',
       },

@@ -3,7 +3,7 @@
     <section class="h-[40vh] py-60">
       <div class="flex gap-8 max-w-screen-lg mx-auto px-3">
         <div class="flex flex-col gap-6">
-          <h1 class="text-7xl font-semibold text-left flex flex-col gap-4">
+          <h1 class="text-5xl md:text-6xl font-semibold text-left flex flex-col gap-4">
             {{ this.realisation.name }}
             <!-- {{ this.realisation['name'] }} -->
           </h1>

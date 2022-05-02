@@ -151,6 +151,10 @@ export default {
     },
   },
   mounted() {
+    console.log(this.tel);
+    // this.tel.addEventListener('input', () => {
+    //   this.tel = this.tel.replace(/(\d{2})/gm, '$1 ');
+    // });
     if (localStorage.name) {
       this.name = localStorage.name;
     }
@@ -166,6 +170,12 @@ export default {
     if (localStorage.message) {
       this.message = localStorage.message;
     }
+    document.querySelector('#tel').addEventListener('input', (e) => {
+      if (e.target.value.slice(-1) > 0 || e.target.value.value.slice(-1) < 9) {
+        e.target.value = e.target.value.replace(/\s\s+|\.|-/g, '');
+        e.target.value = e.target.value.replace(/\D/g, '').replace(/(\d{2})/gm, '$1 ');
+      }
+    });
   },
   watch: {
     name(newName) {
@@ -175,6 +185,7 @@ export default {
       localStorage.email = newEmail;
     },
     tel(newTel) {
+      // this.tel = this.tel.replace(/\s\s+|\.|-/g, '').replace(/(\d{2})/gm, '$1 ');
       localStorage.tel = newTel;
     },
     object(newObject) {

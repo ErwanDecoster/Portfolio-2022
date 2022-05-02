@@ -9,7 +9,7 @@
     </ul>
     <p class="text-left grow-[1]">{{ data.shortDesc }}</p>
     <div class="flex gap-4">
-      <a v-show="data.website" :href="data.website" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">Visiter le site</a>
+      <a v-if="data.website" :href="data.website" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit" target="_blank">Visiter le site</a>
       <router-link :to="{ name: 'realisation', params: { name: data.pathName }}" class="px-5 py-2 border-2 border-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 rounded-xl flex items-center w-fit">Plus d'informations
       </router-link>
     </div>

@@ -78,30 +78,30 @@
       <div class="max-w-screen-lg mx-auto px-3">
         <h2 class="text-3xl font-bold text-center mx-auto">A propos de moi</h2>
         <div class="grid md:grid-cols-2">
-          <img src="" alt="">
+          <img class="w-96 rounded-3xl object-cover h-96 my-16" src="@/assets/profil_picture.webp" alt="">
           <div class="grid gap-12 py-16">
             <!-- <p class="text-xl text-left text-gray-500 ">Grand pationné d’informatique depuis tout petit, aujourdhuit en BTS SIO option Slam (Solutions logicielles et applications métiers)</p> -->
-            <p class="text-xl text-left text-gray-500 ">Etudiant en developement dans le secteur de Lyon, grand passioné de nouvelles technologie et de design. Je realise pour vous votre site web.</p>
+            <p class="text-xl text-left text-gray-500 ">Étudiant en developement dans le secteur de Lyon, grand passionné de nouvelles technologies et de design, je realise pour vous votre site web.</p>
             <ul class="flex justify-around">
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">10+</p>
-                <p class="text-gray-500 sm:w-32 text-center">projets completé</p>
+                <p class="text-gray-500 sm:w-32 text-center">projets completés</p>
               </li>
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">6+</p>
-                <p class="text-gray-500 sm:w-32 text-center">stages entreprise</p>
+                <p class="text-gray-500 sm:w-32 text-center">stages en entreprise</p>
               </li>
               <li class="grid gap-2">
                 <p class="font-bold text-3xl text-center">4+</p>
-                <p class="text-gray-500 sm:w-32 text-center">clients satisfait</p>
+                <p class="text-gray-500 sm:w-32 text-center">clients satisfaits</p>
               </li>
             </ul>
             <div class="flex gap-4">
-              <router-link to="/" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">
+              <router-link to="/" class="h-fit px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">
                 Telecharger CV
                 <img class="h-6" src="@/assets/download-outline.svg" alt="">
               </router-link>
-              <router-link :to="{ name: 'home', hash: '#contact_form'}" class="px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
+              <router-link :to="{ name: 'home', hash: '#contact_form'}" class="h-fit px-5 py-2 bg-blue-600 shadow-md shadow-blue-600/50 hover:shadow-none transition duration-200 text-white rounded-xl flex items-center w-fit">Me contacter</router-link>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@
             <div class="flex flex-col gap-2 duration-150" :style="{ gap: ySpacing - 50 + 'px' }" :class="{ '-translate-x-[100vw] hidden': (selectedParcourt === false) }" >
               <div v-for="row in parcourtProfesionnel" :key="row" class="bg-white border-2 z-10 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl max-w-lg p-3 flex flex-col justify-between" :style="{ height: ySpacing + 50 + 'px' }" :class="[{ 'sm:ml-auto': (row.id % 2 !== 0) },{ 'sm:mr-auto': (row.id % 2 === 0)}]">
                 <div class="flex flex-col">
-                  <h3 class="font-bold text-xl">{{ row.companyName }} - <span class="font-light">{{ row.role }}</span></h3>
+                  <h3 class="font-bold text-lg md:text-xl">{{ row.companyName }} - <span class="font-light">{{ row.role }}</span></h3>
                   <p class="text-sm">{{ row.placementCity }}</p>
                   <p class="text-ellipsis overflow-hidden h-[72px]">{{ row.shortDesc }}</p>
                 </div>
@@ -146,9 +146,9 @@
             <div class="flex flex-col gap-2 duration-150" :style="{ gap: ySpacing - 50 + 'px' }" :class="{ 'translate-x-[100vw] hidden': (selectedParcourt === true) }">
               <div v-for="row in parcourtEducatif" :key="row" class="bg-white border-2 z-10 border-blue-600 shadow-md shadow-blue-600/50 rounded-xl max-w-lg p-3 flex flex-col justify-between" :style="{ height: ySpacing + 50 + 'px' }" :class="[{ 'sm:ml-auto sm:mr-32 ': (row.id % 2 !== 0) },{ 'sm:mr-auto sm:ml-32 ': (row.id % 2 === 0)}]">
                 <div class="flex flex-col">
-                  <h3 class="font-bold text-xl">{{ row.diplome }}</h3>
-                  <h4 class="text-lg">{{ row.companyName }}</h4>
-                  <p class="text-sm">{{ row.placementCity }}</p>
+                  <h3 class="font-bold text-xl md:text-xl">{{ row.diplome }}</h3>
+                  <h4 v-if="row.mension" class="text-md">Mension {{ row.mension }}</h4>
+                  <h4 class="text-md">{{ row.companyName }} - {{ row.placementCity }}</h4>
                   <p>{{ formatDatesYears(row.startDate, row.endDate) }}</p>
                   <!-- <p class="text-ellipsis overflow-hidden h-[72px]">{{ row.shortDesc }}</p> -->
                 </div>
@@ -334,7 +334,8 @@ export default {
     },
     parcourtEducatif() {
       const allParcourt = this.$store.state.parcourtEducatif;
-      return allParcourt;
+      const allPorcourtSorted = allParcourt.reverse();
+      return allPorcourtSorted;
       // return allParcourt.slice(0, 3);
     },
   },
