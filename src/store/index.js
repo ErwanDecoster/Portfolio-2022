@@ -375,7 +375,7 @@ export default createStore({
         placementCity: 'Davezieux',
         placementZipCode: '07340',
         placementAdress: 'Rue des Frères Seguins',
-        companyDesc: 'l\'entreprise Phoenix Vêtements et Protection fondé par Fabrice Atias en #### est speciliser dans vente de vetement et d\'equipement EPI',
+        companyDesc: 'L\'entreprise Phoenix Vêtements et Protection fondé par Fabrice Atias est speciliser dans vente de vêtements et d\'equipements EPI.',
         localisationImgLink: '',
         localisationMapsLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12341.399133235342!2d4.693240915796706!3d45.24934182126644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xee55ab29a5ed411d!2sPhoenix%20V%C3%AAtements%20et%20Protection!5e0!3m2!1sen!2sfr!4v1648500343481!5m2!1sen!2sfr',
         missions:

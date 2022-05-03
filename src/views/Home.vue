@@ -77,8 +77,8 @@
     <section class="py-16" id="a_propos_de_moi">
       <div class="max-w-screen-lg mx-auto px-3">
         <h2 class="text-3xl font-bold text-center mx-auto">A propos de moi</h2>
-        <div class="grid md:grid-cols-2">
-          <img class="w-96 rounded-3xl object-cover h-96 my-16" src="@/assets/profil_picture.webp" alt="">
+        <div class="grid md:grid-cols-2 gap-16">
+          <img class="w-96 rounded-3xl mx-auto object-top object-cover h-96 my-16" src="@/assets/profil_picture.webp" alt="">
           <div class="grid gap-12 py-16">
             <!-- <p class="text-xl text-left text-gray-500 ">Grand pationné d’informatique depuis tout petit, aujourdhuit en BTS SIO option Slam (Solutions logicielles et applications métiers)</p> -->
             <p class="text-xl text-left text-gray-500 ">Étudiant en developement dans le secteur de Lyon, grand passionné de nouvelles technologies et de design, je realise pour vous votre site web.</p>

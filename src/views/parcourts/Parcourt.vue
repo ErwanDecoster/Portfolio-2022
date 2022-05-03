@@ -3,7 +3,7 @@
     <section class="h-[40vh] py-60">
       <div class="flex gap-8 max-w-screen-lg mx-auto px-3">
         <div class="flex flex-col gap-6">
-          <h1 class="text-7xl font-semibold text-left flex flex-col gap-4">
+          <h1 class="text-5xl md:text-6xl font-semibold text-left flex flex-col gap-4">
             {{ this.parcourt.companyName }}
           </h1>
         </div>
@@ -54,9 +54,9 @@
           <div v-if="this.parcourt.companyLocation || this.parcourt.localisationMapsLink || this.parcourt.companyLocation">
             <h3 class="font-bold text-lg mb-2">Localisation</h3>
             <p class="">{{ this.parcourt.companyLocation }}</p>
-            <div class="grid grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-12">
               <img v-if="this.parcourt.localisationImgLink" class="aspect-video rounded-lg" src="" alt="">
-              <iframe class="w-full aspect-video rounded-lg" :src="this.parcourt.localisationMapsLink" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe v-if="this.parcourt.localisationMapsLink" class="w-full aspect-video rounded-lg" :src="this.parcourt.localisationMapsLink" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
