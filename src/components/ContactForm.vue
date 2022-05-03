@@ -151,7 +151,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.tel);
+    // console.log(this.tel);
     // this.tel.addEventListener('input', () => {
     //   this.tel = this.tel.replace(/(\d{2})/gm, '$1 ');
     // });

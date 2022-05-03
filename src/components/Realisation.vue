@@ -14,7 +14,7 @@
       </router-link>
     </div>
   </div>
-  <img class="w-full shadow-md rounded-xl aspect-video border border-neutral-600" :src="require(`@/assets/realisations/${data.img}.png`)" alt="">
+  <img class="w-full shadow-md rounded-xl aspect-video border border-neutral-600" :src="require(`@/assets/realisations/${data.img}.webp`)" alt="">
 </template>
 
 <script>
